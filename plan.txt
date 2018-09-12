@@ -1,0 +1,16 @@
+Car Sales Yard Program
+
+mutliple dealerships (different capacities, location)
+
+each dealership contains (car objects,sales people)
+
+
+
+cars (registration) -> BodyType (SUV, Sedan, Truck, Convertible, HatchACKSS)
+
+staff -> managers, sales people (salary, name, cars sold)
+
+
+
+buy cars, sell cars, getPrice, getDetails, list available cars, list sales (profit etc.) ,getSalary, setSalary
+
