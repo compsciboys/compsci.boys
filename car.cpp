@@ -3,23 +3,26 @@
 
 car::car(){
 
-	registration = "?";
-	brand = "Default";
+	registration = "??????";
+	make = "Default";
 	model = "No Model";
 	body_type = "No Body Type";
+	year = 2018;
 	price = 10000; 
 
 }
 
-car::car(std::string crego, std::string cbrand, std::string cmodel, std::string cbody_type, int cprice){
+car::car(std::string crego, std::string cmake, std::string cmodel, std::string cbody_type, int cyear, int cprice){
 
 	registration = crego;
-	brand = cbrand;
+	make = cmake;
 	model = cmodel;
 	body_type = cbody_type;
+	year = cyear;
 	price = cprice; 
 
 }
+
 int car::getPrice(){
 
 	return price;
@@ -30,19 +33,24 @@ std::string car::getRegistration(){
 	return registration;
 } 
 
-std::string car::getModel(){
+std::string car::getMake(){
 
-	return model; 
+	return make; 
 }
 
-std::string car::getBrand(){
+std::string car::getModel(){
 
-	return brand; 
+	return model;
 }
 
 std::string car::getBody_type(){
 
 	return body_type;
+}
+
+int car::getYear(){
+
+	return year;
 }
 
 void car::setPrice(int newPrice){
@@ -58,4 +66,4 @@ void car::setRegistration(std::string newRego){
 
 
 
-car::~car();
+car::~car() {}
