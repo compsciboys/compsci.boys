@@ -6,10 +6,10 @@ staff::staff() {
   jobTitle="Salesman";
 }
 
-staff::staff(std:string pName; int pSalary) {
+staff::staff(std::string pName, int pSalary, std::string pjobTitle) {
   name=pName;
   salary=pSalary;
-  jobTitle="Salesman";
+  jobTitle=pjobTitle;
 }
 
 int staff::getSalary() {
@@ -19,9 +19,14 @@ int staff::getSalary() {
 std::string staff::getName() {
   return name;
 }
-	
-void staff::setSalary() {
+
+std::string staff::getJobTitle() {
+  return jobTitle;
+}
+
+void staff::setSalary(int pSalary) {
   salary=pSalary;
-	
+}
+
 staff::~staff() {
 }

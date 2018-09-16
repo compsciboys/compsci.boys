@@ -7,16 +7,18 @@ class staff {
 	std::string name;
 	std::string jobTitle;
 	int salary;
-	int
 	
 public:
 	staff();
-	staff(std:string pName; int pSalary);
+	staff(std::string pName, int pSalary, std::string pjobTitle);
 	
 	int getSalary();
-	std::string getName;
+	std::string getName();
+	std::string getJobTitle();
 	
-	void setSalary();
+	void setSalary(int pSalary);
 	
 	~staff();
-}
+};
+
+#endif
