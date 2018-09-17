@@ -20,11 +20,11 @@ public:
 	car ** getYard();
 	staff ** getWorkers();
 
-	bool addCar(car tempCar);
-	bool sellCar(car sellingCar);
+	bool addCar(car *tempCar);
+	bool sellCar(car *sellingCar);
 
-	bool addStaff(staff newWorker);
-	bool removeStaff(staff worker);
+	bool addStaff(staff *newWorker);
+	bool removeStaff(staff *worker);
 
 	void printCarStock(car** stock);
 

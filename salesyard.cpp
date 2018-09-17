@@ -59,7 +59,7 @@ bool salesyard::addStaff(staff *newWorker) {
 	}
 }
 	
-bool removeStaff(staff *worker); {
+bool salesyard::removeStaff(staff *worker) {
 	//FINISH LATER
 }
 
