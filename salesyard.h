@@ -8,6 +8,7 @@
 class salesyard {
 	int capacity;
 	int numCars;
+	int numWorkers;
 	std::string name;
 	car **yard;
 	staff **workers; 
@@ -24,6 +25,8 @@ public:
 
 	bool addStaff(staff newWorker);
 	bool removeStaff(staff worker);
+
+	void printCarStock(car** stock);
 
 	~salesyard();
 };

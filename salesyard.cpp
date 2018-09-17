@@ -3,22 +3,24 @@
 #include "salesyard.h"
 #include <string>
 
-int numWorkers=5;
+int maxWorkers=5;
 
 salesyard::salesyard() {
 	capacity = 10;
-	numCars=0;
+	numCars = 0;
+	numWorkers = 0;
 	name = "Car Yard";
 	yard = new car*[capacity];
-	workers = new staff*[numWorkers];
+	workers = new staff*[maxWorkers];
 }
 
 salesyard::salesyard(int pcapacity, std::string pname) {
-	numCars=0;
+	numCars = 0;
+	numWorkers = 0;
 	name = pname;
 	capacity=pcapacity;
 	yard = new car*[capacity];
-	workers = new staff*[numWorkers];
+	workers = new staff*[maxWorkers];
 }
 	
 std::string salesyard::getName() {
@@ -33,19 +35,31 @@ staff ** salesyard::getWorkers() {
 	return workers;
 }
 
-bool salesyard::addCar(car tempCar) {
+bool salesyard::addCar(car *tempCar) {
+	if (numCars<capacity) {
+		yard[numCars]=tempCar;
+		numCars++;
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool salesyard::sellCar(car *sellingCar) {
 	//FINISH LATER
 }
 
-bool salesyard::sellCar(car sellingCar) {
-	//FINISH LATER
-}
-
-bool salesyard::addStaff(staff newWorker) {
-	//FINISH LATER
+bool salesyard::addStaff(staff *newWorker) {
+	if (numWorkers < maxWorkers) {
+		workers[numWorkers]=newWorker;
+		numWorkers++;
+		return true;
+	} else {
+		return false;
+	}
 }
 	
-bool removeStaff(staff worker); {
+bool removeStaff(staff *worker); {
 	//FINISH LATER
 }
 

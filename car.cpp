@@ -64,6 +64,4 @@ void car::setRegistration(std::string newRego){
 
 }   
 
-
-
 car::~car() {}
