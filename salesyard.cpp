@@ -23,6 +23,14 @@ salesyard::salesyard(int pcapacity, std::string pname) {
 	workers = new staff*[maxWorkers];
 }
 	
+int salesyard::getNumCars() {
+	return numCars;
+}
+
+int salesyard::getNumWorkers() {
+	return numWorkers;
+}
+
 std::string salesyard::getName() {
 	return name;
 }

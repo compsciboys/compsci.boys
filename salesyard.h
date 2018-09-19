@@ -16,6 +16,8 @@ public:
 	salesyard();
 	salesyard(int pcapacity, std::string pname);
 	
+	int getNumCars();
+	int getNumWorkers();
 	std::string getName();
 	car ** getYard();
 	staff ** getWorkers();
