@@ -26,8 +26,6 @@ public:
 	bool addStaff(staff *newWorker);
 	bool removeStaff(staff *worker);
 
-	void printCarStock(car** stock);
-
 	~salesyard();
 };
 
