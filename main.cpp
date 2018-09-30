@@ -10,15 +10,20 @@ int main (void) {
 	numSalesyard = 0;
 	maxSalesyards = 5;
 	salesyard *yards;
-	yards = 
+	yards = new salesyard[maxSalesyards];
 
+	yard[numSalesyard]=newSalesyard();
+}
+
+salesyard newSalesyard() {
 	std::cout << "What would you like to name your salesyard?: ";
 	std::cin >>  std::string tempname;
 
 	std::cout << ""
-}
 
-<<<<<<< HEAD
-=======
+
+
+
+	salesyard tempSalesyard();
+	return tempSalesyard;
 }
->>>>>>> 0d986d733c1481ad7879d903962194d7d205ebde
