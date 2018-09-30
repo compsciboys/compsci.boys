@@ -1,8 +1,8 @@
-#include "car.h"
+#include "vehicle.h"
 #include <iostream>
 
 int main (void) {
-	car firstCar("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
+	vehicle firstCar("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
 
 	std::cout << "Make: " << firstCar.getMake() << std::endl;
 	std::cout << "Model: " << firstCar.getModel() << std::endl;
