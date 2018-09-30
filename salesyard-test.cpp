@@ -1,5 +1,5 @@
 #include "staff.h"
-#include "car.h"
+#include "vehicle.h"
 #include "salesyard.h"
 #include <iostream>
 
@@ -12,7 +12,7 @@ int main (void) {
 	std::cout << "Salary: $" << person1.getSalary() << std::endl;
 	std::cout << "JobTitle: " << person1.getJobTitle() << std::endl;
 
-	car firstCar("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
+	vehicle firstCar("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
 
 	std::cout << "Make: " << firstCar.getMake() << std::endl;
 	std::cout << "Model: " << firstCar.getModel() << std::endl;
@@ -22,10 +22,10 @@ int main (void) {
 	std::cout << "Price: $" << firstCar.getPrice() << std::endl;
 
 
-	car secondCar("111AAA", "Mitsubishi", "Lancer", "Sedan", 2000, 5000);
-	car thirdCar("222FGD", "Holden", "Barina", "Hatch", 2015, 12000);
-	car fourthCar("666XXX", "Ford", "Mustang", "Coupe", 2016, 30000);
-	car fifthCar("321KKK", "Subaru", "WRX", "Sedan", 2007, 10000);
+	vehicle secondCar("111AAA", "Mitsubishi", "Lancer", "Sedan", 2000, 5000);
+	vehicle thirdCar("222FGD", "Holden", "Barina", "Hatch", 2015, 12000);
+	vehicle fourthCar("666XXX", "Ford", "Mustang", "Coupe", 2016, 30000);
+	vehicle fifthCar("321KKK", "Subaru", "WRX", "Sedan", 2007, 10000);
 
 	salesyard firstYard(3,"first yard");
 
