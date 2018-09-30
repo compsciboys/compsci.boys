@@ -2,7 +2,7 @@
 #define SALES_YARD
 
 #include "staff.h"
-#include "car.h"
+#include "vehicle.h"
 #include <string>
 
 class salesyard {
@@ -10,7 +10,7 @@ class salesyard {
 	int numCars;
 	int numWorkers;
 	std::string yardName;
-	car **yard;
+	vehicle **yard;
 	staff **workers; 
 public:
 	salesyard();
@@ -19,7 +19,7 @@ public:
 	int getNumCars();
 	int getNumWorkers();
 	std::string getYardName();
-	car ** getYard();
+	vehicle ** getYard();
 	staff ** getWorkers();
 
 	bool addCar(car *tempCar);
