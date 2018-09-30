@@ -31,7 +31,7 @@ int salesyard::getNumWorkers() {
 	return numWorkers;
 }
 
-std::string salesyard::getName() {
+std::string salesyard::getYardName() {
 	return name;
 }
 
