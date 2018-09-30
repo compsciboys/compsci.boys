@@ -11,9 +11,7 @@ public:
 	manager();
 	manager(std::string mName, int mSalary);
 
-	addStaff(std::string pName, int pSalary, std::string jobTitle);
-	removeStaff(std::string pName, std::string jobTitle);
-
+	bool yardOpen(int time); //in 24hour time
 
 	~manager(); 
 

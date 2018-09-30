@@ -1,9 +1,9 @@
-#ifndef CAR_H
-#define CAR_H
+#ifndef VEHICLE_H
+#define VEHICLE_H
 
 #include <string>
 
-class car {
+class vehicle {
 
 	std::string registration;
 	std::string make;
@@ -15,8 +15,8 @@ class car {
 
 public: 
 
-	car();
-	car(std::string registration, std::string brand, std::string make, std::string body_type, int year, int price);
+	vehicle();
+	vehicle(std::string registration, std::string brand, std::string make, std::string body_type, int year, int price);
 	
 	int getPrice();
 	int getYear();
@@ -28,7 +28,7 @@ public:
 	void setPrice(int newPrice);
 	void setRegistration(std::string newRego);
 
-	~car();
+	~vehicle();
 
 };
 

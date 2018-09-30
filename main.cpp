@@ -1,4 +1,4 @@
-#include "car.h"
+#include "vehicle.h"
 #include "staff.h"
 #include "salesman.h"
 #include "salesyard.h"
@@ -18,3 +18,7 @@ int main (void) {
 	std::cout << ""
 }
 
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 0d986d733c1481ad7879d903962194d7d205ebde
