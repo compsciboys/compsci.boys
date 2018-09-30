@@ -1,5 +1,5 @@
 #include "staff.h"
-#include "car.h"
+#include "vehicle.h"
 #include "salesyard.h"
 #include <string>
 
@@ -10,7 +10,7 @@ salesyard::salesyard() {
 	numCars = 0;
 	numWorkers = 0;
 	name = "Car Yard";
-	yard = new car*[capacity];
+	yard = new vehicle*[capacity];
 	workers = new staff*[maxWorkers];
 }
 
@@ -19,7 +19,7 @@ salesyard::salesyard(int pcapacity, std::string pname) {
 	numWorkers = 0;
 	name = pname;
 	capacity=pcapacity;
-	yard = new car*[capacity];
+	yard = new vehicle*[capacity];
 	workers = new staff*[maxWorkers];
 }
 	
