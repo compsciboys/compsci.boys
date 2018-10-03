@@ -9,7 +9,7 @@ class salesyard {
 	int capacity;
 	int numVehicles;
 	int numWorkers;
-	std::string yardName;
+	std::string name;
 	vehicle **yard;
 	staff **workers; 
 public:

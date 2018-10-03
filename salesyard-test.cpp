@@ -12,56 +12,56 @@ int main (void) {
 	std::cout << "Salary: $" << person1.getSalary() << std::endl;
 	std::cout << "JobTitle: " << person1.getJobTitle() << std::endl;
 
-	vehicle firstCar("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
+	vehicle firstVehicle("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
 
-	std::cout << "Make: " << firstCar.getMake() << std::endl;
-	std::cout << "Model: " << firstCar.getModel() << std::endl;
-	std::cout << "Body Type: " << firstCar.getBody_type() << std::endl;
-	std::cout << "Year: " << firstCar.getYear() << std::endl;
-	std::cout << "Registration: " << firstCar.getRegistration() << std::endl;
-	std::cout << "Price: $" << firstCar.getPrice() << std::endl;
+	std::cout << "Make: " << firstVehicle.getMake() << std::endl;
+	std::cout << "Model: " << firstVehicle.getModel() << std::endl;
+	std::cout << "Body Type: " << firstVehicle.getBody_type() << std::endl;
+	std::cout << "Year: " << firstVehicle.getYear() << std::endl;
+	std::cout << "Registration: " << firstVehicle.getRegistration() << std::endl;
+	std::cout << "Price: $" << firstVehicle.getPrice() << std::endl;
 
 
-	vehicle secondCar("111AAA", "Mitsubishi", "Lancer", "Sedan", 2000, 5000);
+	vehicle secondVehicle("111AAA", "Mitsubishi", "Lancer", "Sedan", 2000, 5000);
 
-	std::cout << "Make: " << secondCar.getMake() << std::endl;
-	std::cout << "Model: " << secondCar.getModel() << std::endl;
-	std::cout << "Body Type: " << secondCar.getBody_type() << std::endl;
-	std::cout << "Year: " << secondCar.getYear() << std::endl;
-	std::cout << "Registration: " << secondCar.getRegistration() << std::endl;
-	std::cout << "Price: $" << secondCar.getPrice() << std::endl;
+	std::cout << "Make: " << secondVehicle.getMake() << std::endl;
+	std::cout << "Model: " << secondVehicle.getModel() << std::endl;
+	std::cout << "Body Type: " << secondVehicle.getBody_type() << std::endl;
+	std::cout << "Year: " << secondVehicle.getYear() << std::endl;
+	std::cout << "Registration: " << secondVehicle.getRegistration() << std::endl;
+	std::cout << "Price: $" << secondVehicle.getPrice() << std::endl;
 
-	vehicle thirdCar("222FGD", "Holden", "Barina", "Hatch", 2015, 12000);
-	vehicle fourthCar("666XXX", "Ford", "Mustang", "Coupe", 2016, 30000);
-	vehicle fifthCar("321KKK", "Subaru", "WRX", "Sedan", 2007, 10000);
+	vehicle thirdVehicle("222FGD", "Holden", "Barina", "Hatch", 2015, 12000);
+	vehicle fourthVehicle("666XXX", "Ford", "Mustang", "Coupe", 2016, 30000);
+	vehicle fifthVehicle("321KKK", "Subaru", "WRX", "Sedan", 2007, 10000);
 
 	salesyard firstYard(3,"first yard");
 
-	if (!firstYard.addCar(&firstCar)) {
+	if (!firstYard.addVehicle(&firstVehicle)) {
 		std::cout << error << std::endl;
 	}
 
 
-	if (!firstYard.addCar(&secondCar)) {
+	if (!firstYard.addVehicle(&secondVehicle)) {
 		std::cout << error << std::endl;
 	}
 
 
-	if (!firstYard.addCar(&thirdCar)) {
+	if (!firstYard.addVehicle(&thirdVehicle)) {
 		std::cout << error << std::endl;
 	}
 
 
-	if (!firstYard.addCar(&fourthCar)) {
+	if (!firstYard.addVehicle(&fourthVehicle)) {
 		std::cout << error << std::endl;
 	}
 
 
-	if (!firstYard.addCar(&fifthCar)) {
+	if (!firstYard.addVehicle(&fifthVehicle)) {
 		std::cout << error << std::endl;
 	}
 
-	std::cout << firstYard.getYard()[2].getRegistration() ;
+	std::cout << firstYard.getYard()[2]->getRegistration() ;
 
 	
 }
