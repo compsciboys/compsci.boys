@@ -61,5 +61,7 @@ int main (void) {
 		std::cout << error << std::endl;
 	}
 
+	std::cout << firstYard.getYard()[2].getRegistration() ;
+
 	
 }

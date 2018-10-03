@@ -7,7 +7,7 @@
 
 class salesyard {
 	int capacity;
-	int numCars;
+	int numVehicles;
 	int numWorkers;
 	std::string yardName;
 	vehicle **yard;
@@ -16,14 +16,14 @@ public:
 	salesyard();
 	salesyard(int pcapacity, std::string pname);
 	
-	int getNumCars();
+	int getNumVehicles();
 	int getNumWorkers();
 	std::string getYardName();
 	vehicle ** getYard();
 	staff ** getWorkers();
 
-	bool addCar(car *tempCar);
-	bool sellCar(car *sellingCar);
+	bool addVehicle(vehicle *tempVehicle);
+	bool sellVehicle(vehicle *sellingVehicle);
 
 	bool addStaff(staff *newWorker);
 	bool removeStaff(staff *worker);

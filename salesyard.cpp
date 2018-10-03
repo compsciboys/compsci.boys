@@ -7,7 +7,7 @@ int maxWorkers=5;
 
 salesyard::salesyard() {
 	capacity = 10;
-	numCars = 0;
+	numVehicles = 0;
 	numWorkers = 0;
 	name = "Car Yard";
 	yard = new vehicle*[capacity];
@@ -15,7 +15,7 @@ salesyard::salesyard() {
 }
 
 salesyard::salesyard(int pcapacity, std::string pname) {
-	numCars = 0;
+	numVehicles = 0;
 	numWorkers = 0;
 	name = pname;
 	capacity=pcapacity;
@@ -23,8 +23,8 @@ salesyard::salesyard(int pcapacity, std::string pname) {
 	workers = new staff*[maxWorkers];
 }
 	
-int salesyard::getNumCars() {
-	return numCars;
+int salesyard::getNumVehicles() {
+	return numVehicles;
 }
 
 int salesyard::getNumWorkers() {
@@ -35,7 +35,7 @@ std::string salesyard::getYardName() {
 	return name;
 }
 
-car ** salesyard::getYard() {
+vehicle ** salesyard::getYard() {
 	return yard;
 }
 
@@ -43,17 +43,17 @@ staff ** salesyard::getWorkers() {
 	return workers;
 }
 
-bool salesyard::addCar(car *tempCar) {
-	if (numCars<capacity) {
-		yard[numCars]=tempCar;
-		numCars++;
+bool salesyard::addVehicle(vehicle *tempVehicle) {
+	if (numVehicles<capacity) {
+		yard[numVehicles]=tempVehicle;
+		numVehicles++;
 		return true;
 	} else {
 		return false;
 	}
 }
 
-bool salesyard::sellCar(car *sellingCar) {
+bool salesyard::sellVehicle(vehicle *sellingVehicle) {
 	//FINISH LATER
 }
 
