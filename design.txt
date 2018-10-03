@@ -5,5 +5,17 @@ There are multiple vehicle variants, ranging from bikes to trucks.
 
 The program will need to use dynamic arrays, objects/classes/types and i/o, in all aspects of the software.
 Dynamic arrays will be used when creating the salesyard. 
-The program will contain multiple objects/classes/types; the salesyard class, the salesman class, the manager class, 
-the vehicle class.
+The program will contain multiple objects/classes/types; 
+
+salesyard class
+
+staff class
+    salesman class (sell cars)
+        manager class (
+
+vehicle class
+    truck (towing capacity)
+    bike (sold with inusrance??)
+    coupe (is convertible, misc. performance)
+    van (storage space)
+    suv (is 4wd capable)
