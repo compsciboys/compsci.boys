@@ -23,6 +23,14 @@ int main (void) {
 
 
 	vehicle secondCar("111AAA", "Mitsubishi", "Lancer", "Sedan", 2000, 5000);
+
+	std::cout << "Make: " << secondCar.getMake() << std::endl;
+	std::cout << "Model: " << secondCar.getModel() << std::endl;
+	std::cout << "Body Type: " << secondCar.getBody_type() << std::endl;
+	std::cout << "Year: " << secondCar.getYear() << std::endl;
+	std::cout << "Registration: " << secondCar.getRegistration() << std::endl;
+	std::cout << "Price: $" << secondCar.getPrice() << std::endl;
+
 	vehicle thirdCar("222FGD", "Holden", "Barina", "Hatch", 2015, 12000);
 	vehicle fourthCar("666XXX", "Ford", "Mustang", "Coupe", 2016, 30000);
 	vehicle fifthCar("321KKK", "Subaru", "WRX", "Sedan", 2007, 10000);
