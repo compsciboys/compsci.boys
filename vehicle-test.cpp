@@ -27,17 +27,17 @@ int main (void) {
 	int cyear1; 
 	int cprice1;
 	
-	std::cout << "Please enter the vehicle registration: " << endl; ;
+	std::cout << "Please enter the vehicle registration: " << std::endl; ;
 	std::cin >> crego1;
-	std:: cout << "Please enter the vehicle badge: " << endl;
+	std:: cout << "Please enter the vehicle badge: " << std::endl;
 	std::cin >> cmake1;
-	std::cout << "Please enter the vehicle model: " << endl;
+	std::cout << "Please enter the vehicle model: " << std::endl;
 	std::cin >> cmodel1;
-	std::cout << "Please enter the vehicle body type: " << endl;
+	std::cout << "Please enter the vehicle body type: " << std::endl;
 	std::cin >> cbody_type1;
-	std::cout << "Please enter the year of manufacture: " << endl;
+	std::cout << "Please enter the year of manufacture: " << std::endl;
 	std::cin >> cyear1;
-	std::cout << "Please enter the price of the vehicle: " << endl;
+	std::cout << "Please enter the price of the vehicle: " << std::endl;
 	std::cin >> cprice1;
 	
 	vehicle thirdCar(crego1, cmake1, cmodel1, cbody_type1, cyear1, cprice1);
