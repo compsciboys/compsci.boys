@@ -11,7 +11,8 @@ int main (void) {
 	std::cout << "Registration: " << firstCar.getRegistration() << std::endl;
 	std::cout << "Price: $" << firstCar.getPrice() << std::endl;
 	
-	vehicle secondCar(14, "Mazda", "6", "Hatch", "2012", 1000);
+	//vehicle secondCar(14, "Mazda", "6", "Hatch", "2012", 1000);
+	vehicle secondCar("", "", "", "", -10, -48e1);
 	
 	std::cout << "Make: " << secondCar.getMake() << std::endl;
 	std::cout << "Model: " << secondCar.getModel() << std::endl;
