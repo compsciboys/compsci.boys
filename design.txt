@@ -1,2 +1,9 @@
+The system that we are modelling aims to model a car dealership/yard.
 
+The program takes intput from a user and creates a car dealership object, which contains vehicles, managers and salesmen.
+There are multiple vehicle variants, ranging from bikes to trucks.
 
+The program will need to use dynamic arrays, objects/classes/types and i/o, in all aspects of the software.
+Dynamic arrays will be used when creating the salesyard. 
+The program will contain multiple objects/classes/types; the salesyard class, the salesman class, the manager class, 
+the vehicle class.
