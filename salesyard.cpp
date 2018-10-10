@@ -31,7 +31,7 @@ int salesyard::getNumWorkers() {
 	return numWorkers;
 }
 
-std::string salesyard::getYardName() {
+std::string salesyard::getName() {
 	return name;
 }
 
@@ -71,6 +71,9 @@ bool salesyard::removeStaff(staff *worker) {
 	//FINISH LATER
 }
 
+void salesyard::resetYard() {
+	yard = new vehicle*[capacity];
+}
 void salesyard::setName(std::string pname) {
 	name=pname;
 }

@@ -18,7 +18,7 @@ public:
 	
 	int getNumVehicles();
 	int getNumWorkers();
-	std::string getYardName();
+	std::string getName();
 	vehicle ** getYard();
 	staff ** getWorkers();
 
@@ -28,6 +28,7 @@ public:
 	bool addStaff(staff *newWorker);
 	bool removeStaff(staff *worker);
 
+	void resetYard();
 	void setName(std::string pname);
 	void setCapacity(int pcapacity);
 
