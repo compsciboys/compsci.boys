@@ -44,18 +44,36 @@ int main (void) {
 				}		
 				break;
 			case '2':
-				std::cout << "You currently have the following salesyards" << std::endl;
-				for (i=0; i<numSalesyards; i++) {
-					std::cout << i << " - " << yards[i].getName() << std::endl;
-				}
-				while (true) {
-					std::cin.get();
-					std::cin.get(userInput);
-					if (userInput <= numSalesyards && userInput >= 0) {
-						currentSalesyard=userInput;
-						std::cout << "You have selected the salesyard '" << yards[currentSalesyard].getName() << "'" << std::endl << "What would you like to do?" << std::endl;
-					} else {
-						std::cout << "That is not a valid selection" << std::endl;
+				if (numSalesyards==0) {
+					std::cout << "You have not yet created any salesyards" << std::endl;
+				} else {
+					std::cout << "You currently have the following salesyards" << std::endl;
+					for (i=0; i<numSalesyards; i++) {
+						std::cout << i << " - " << yards[i].getName() << std::endl;
+					}
+					while (true) {
+						std::cin >> currentSalesyard;
+						if (currentSalesyard <= numSalesyards && currentSalesyard >= 0) {
+							std::cout << "You have selected the salesyard '" << yards[currentSalesyard].getName() << "'" << std::endl << "What would you like to do?" << std::endl;
+							while (true) {
+								std::cout << "0 - Add Car\n1 - Sell Car\n";
+								std::cin.get(userInput);
+
+								switch (userInput) {
+									case '0':
+
+										break;
+									case '1':
+
+										break;
+									default:
+										std::cout << "That is an invalid input" << std::endl;
+								}
+							}
+							break;
+						} else {
+							std::cout << "That is not a valid selection" << std::endl;
+						}
 					}
 				}
 				break;
