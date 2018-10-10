@@ -28,6 +28,9 @@ public:
 	bool addStaff(staff *newWorker);
 	bool removeStaff(staff *worker);
 
+	void setName(std::string pname);
+	void setCapacity(int pcapacity);
+
 	~salesyard();
 };
 

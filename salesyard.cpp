@@ -71,6 +71,14 @@ bool salesyard::removeStaff(staff *worker) {
 	//FINISH LATER
 }
 
+void salesyard::setName(std::string pname) {
+	name=pname;
+}
+
+void salesyard::setCapacity(int pcapacity) {
+	capacity=pcapacity;
+}
+
 salesyard::~salesyard() {
 	delete[] yard;
 	delete[] workers;
