@@ -7,7 +7,7 @@ manager::manager():staff("?",100000,"Manager"){
 
 }
 	
-manager::manager(std::string mName, int mSalary):staff(mName, mSalary, "Manager"){
+manager::manager(std::string mName, int mSalary):staff(mName, mSalary, "Manager") {
 
 }
 
@@ -21,4 +21,4 @@ bool yardOpen(int time){
 	}
 }
 
-manager::manager(){}
+manager::~manager(){}

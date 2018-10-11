@@ -22,8 +22,8 @@ public:
 	vehicle ** getYard();
 	staff ** getWorkers();
 
-	bool addVehicle(vehicle *tempVehicle);
-	bool sellVehicle(vehicle *sellingVehicle);
+	bool addVehicle(vehicle *tempVehicle, staff *worker);
+	bool sellVehicle(vehicle *sellingVehicle, staff *worker);
 
 	bool addStaff(staff *newWorker);
 	bool removeStaff(staff *worker);

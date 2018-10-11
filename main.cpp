@@ -7,7 +7,8 @@
 #include <string>
 
 int main (void) {
-	bool run = true;
+	bool mainMenu = true;
+	bool salesyardSelection = true;
 	char userInput;
 	int numSalesyards = 0;
 	int maxSalesyards = 5;
@@ -19,13 +20,13 @@ int main (void) {
 	int currentSalesyard;
 	int i;
 
-	while(run==true) {
-		std::cout << "Menu\n\n0 - exit\n1 - Create new Salesyard\n2 - Select Salesyard\n" << std::endl;
+	while(mainMenu==true) {
+		std::cout << "\nMenu\n\n0 - Exit\n1 - Create new Salesyard\n2 - Select Salesyard\n" << std::endl;
 		std::cin.get(userInput);
 
 		switch (userInput) {
 			case '0':
-				run=false;
+				mainMenu=false;
 				break;
 			case '1':
 				if (numSalesyards<maxSalesyards) {
@@ -51,9 +52,11 @@ int main (void) {
 					for (i=0; i<numSalesyards; i++) {
 						std::cout << i << " - " << yards[i].getName() << std::endl;
 					}
-					while (true) {
+					while (salesyardSelection==true) {
 						std::cin >> currentSalesyard;
-						if (currentSalesyard <= numSalesyards && currentSalesyard >= 0) {
+						std::cin.get();
+						
+						if (currentSalesyard < numSalesyards && currentSalesyard >= 0) {
 							std::cout << "You have selected the salesyard '" << yards[currentSalesyard].getName() << "'" << std::endl << "What would you like to do?" << std::endl;
 							while (true) {
 								std::cout << "0 - Add Car\n1 - Sell Car\n";
