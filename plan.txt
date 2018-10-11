@@ -14,3 +14,40 @@ staff -> managers, sales people (salary, name, cars sold)
 
 buy cars, sell cars, getPrice, getDetails, list available cars, list sales (profit etc.) ,getSalary, setSalary
 
+
+
+
+Main Menu 
+
+	Exit
+
+	create salesyard
+		*input details and create salesyard*
+
+	select salesyard
+
+		go back
+		
+		view cars
+
+		add car to salesyard
+			*input details and create car*
+
+		sell car from salesyard
+			*select car and staff member
+
+		view staff	
+					
+		hire staff
+			*input details and create staff*
+
+		fire staff
+			*select staff
+
+		delete salesyard
+
+	
+
+		
+		
+	
