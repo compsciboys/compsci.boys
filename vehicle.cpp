@@ -8,7 +8,7 @@ vehicle::vehicle(){
 	model = "No Model";
 	body_type = "No Body Type";
 	year = 2018;
-	price = 10000; 
+	purchasePrice = 10000; 
 
 }
 
@@ -19,13 +19,13 @@ vehicle::vehicle(std::string crego, std::string cmake, std::string cmodel, std::
 	model = cmodel;
 	body_type = cbody_type;
 	year = cyear;
-	price = cprice; 
+	purchasePrice = cprice; 
 
 }
 
 int vehicle::getPrice(){
 
-	return price;
+	return purchasePrice;
 }
 
 std::string vehicle::getRegistration(){
@@ -53,10 +53,6 @@ int vehicle::getYear(){
 	return year;
 }
 
-void vehicle::setPrice(int newPrice){
-
-	price = newPrice;
-}
 
 void vehicle::setRegistration(std::string newRego){
 

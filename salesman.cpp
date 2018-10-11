@@ -18,6 +18,14 @@ int salesman::getProfit() {
 	return profit;
 }
 
+void salesman::incrementCarsSold() {
+	numCarsSold++;
+}
+
+void salesman::increaseProfit(int income) {
+	profit=profit+income;
+}
+
 salesman::~salesman() {
 
 }

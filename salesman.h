@@ -13,6 +13,9 @@ public:
 	int getnumCarsSold();
 	int getProfit();
 
+	void incrementCarsSold();
+
+	void increaseProfit(int income);
 	~salesman();
 };
 

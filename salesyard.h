@@ -22,11 +22,11 @@ public:
 	vehicle ** getYard();
 	staff ** getWorkers();
 
-	bool addVehicle(vehicle *tempVehicle, staff *worker);
-	bool sellVehicle(vehicle *sellingVehicle, staff *worker);
+	bool addVehicle(vehicle *tempVehicle);
+	void sellVehicle(int index, salesman *worker, int price);
 
 	bool addStaff(staff *newWorker);
-	bool removeStaff(staff *worker);
+	void removeStaff(int index);
 
 	void resetYard();
 	void setName(std::string pname);

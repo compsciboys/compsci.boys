@@ -1,4 +1,5 @@
 #include "staff.h"
+#include "salesman.h"
 #include "vehicle.h"
 #include "salesyard.h"
 #include <string>
@@ -53,8 +54,10 @@ bool salesyard::addVehicle(vehicle *tempVehicle) {
 	}
 }
 
-bool salesyard::sellVehicle(vehicle *sellingVehicle) {
-	//FINISH LATER
+void salesyard::sellVehicle(int index, salesman *worker, int price) {
+	worker->increaseProfit(price-yard[index]->getPrice());
+	worker->incrementCarsSold();
+	yard[index]=yard[numVehicles-1];
 }
 
 bool salesyard::addStaff(staff *newWorker) {
@@ -67,8 +70,9 @@ bool salesyard::addStaff(staff *newWorker) {
 	}
 }
 	
-bool salesyard::removeStaff(staff *worker) {
-	//FINISH LATER
+void salesyard::removeStaff(int index) {
+	workers[index]=workers[numWorkers];
+	numWorkers--;
 }
 
 void salesyard::resetYard() {

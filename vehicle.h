@@ -10,7 +10,7 @@ class vehicle {
 	std::string model;
 	std::string body_type;
 	int year;
-	int price; 
+	int purchasePrice; 
 
 
 public: 
@@ -25,7 +25,6 @@ public:
 	std::string getModel();
 	std::string getBody_type();
 	
-	void setPrice(int newPrice);
 	void setRegistration(std::string newRego);
 
 	~vehicle();
