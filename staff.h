@@ -10,15 +10,15 @@ class staff {
 	
 public:
 	staff();
-	staff(std::string pName, int pSalary, std::string pjobTitle);
+	staff(std::string pName, int pSalary, std::string pJobTitle);
 	
 	int getSalary();
 	std::string getName();
 	std::string getJobTitle();
 	
+	void setName(std::string pName);
+	void setJobTitle(std::string pJobTitle);
 	void setSalary(int pSalary);
-	void incrementCarsSold();
-	void increaseProfit(int income);
 	
 	~staff();
 };
