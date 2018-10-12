@@ -232,16 +232,21 @@ int main (void) {
 										std::cout << "Please enter the Staff's job title: " << std::endl;
 										std::cin >> tempJobTitle;
 										if (tempJobTitle == "Salesman") {
-
+											tempSalesman = new salesman;
+											tempSalesman->setName(tempName);
+											tempSalesman->setSalary(tempSalary);
+											tempSalesman->setJobTitle(tempJobTitle);
+											yards[currentSalesyard].addStaff(tempSalesman);
 										} else if (tempJobTitle == "test") {
-
+											
 										} else {
 											tempStaff = new staff;
 											tempStaff->setName(tempName);
 											tempStaff->setSalary(tempSalary);
 											tempStaff->setJobTitle(tempJobTitle);
+											yards[currentSalesyard].addStaff(tempStaff);
 										}
-										yards[currentSalesyard].addStaff(tempStaff);
+										
 										break;
 									case '6':
 										if (yards[currentSalesyard].getNumWorkers()>0) {
