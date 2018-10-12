@@ -24,6 +24,7 @@ int main (void) {
 
 	int currentSalesyard; //index of current salesyard in yards array
 	int currentVehicle; //index of current vehicle in current salesyard
+	int currentSalesman;
 	int i;
 
 	std::string tempMake;
@@ -89,10 +90,11 @@ int main (void) {
 											std::cout << "Select the vehicle you would like to view" << std::endl;
 											std::cout << "0 - Return to Salesyard Menu" << std::endl;
 											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
-												std::cout << i << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << " \n" << std::endl;
+												std::cout << i+1<< " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << " \n" << std::endl;
 											}
 											while (returnToSalesyardMenu==false) {
 												std::cin >> currentVehicle;
+												currentVehicle--;
 
 												if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
 													std::cout << "You have selected the '" << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << "'" << std::endl << "What would you like to do?" << std::endl;
@@ -139,18 +141,55 @@ int main (void) {
 										std::cin >> tempPrice;
 										std::cout << "Please enter the vehicle body type: " << std::endl;
 										std::cin >> tempBodyType;
+
 										if (tempBodyType=="Sedan") {
 
 										} else if (tempBodyType=="Truck") {
 
 										} else if (tempBodyType=="") {
 
+										} else {
+											tempVehicle.setRegistration(tempRego);
+											tempVehicle.setMake(tempMake);
+											tempVehicle.setModel(tempModel);
+											tempVehicle.setYear(tempYear);
+											tempVehicle.setPrice(tempPrice);
 										}
 
-										//yards[currentSalesyard].addVehicle(&tempVehicle);
+										if (!yards[currentSalesyard].addVehicle(&tempVehicle)) {
+											std::cout << "Sorry the salesyard is full" << std::endl;
+										}
 										break;
 									case '3':
+										returnToSalesyardMenu=false;
+										if (yards[currentSalesyard].getNumVehicles()>0) {
+											std::cout << "Select the vehicle you would like to sell" << std::endl;
+											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
+												std::cout << i << " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << " \n" << std::endl;
+											}
+											while (returnToSalesyardMenu==false) {
+												std::cin >> currentVehicle;
 
+												if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
+													std::cout << "Which Salesman has sold the '" << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << "'" << std::endl << "What would you like to do?" << std::endl;
+													vehicleSelected=true;
+													for (i=0;i<yards[currentSalesyard].getNumWorkers();i++) {
+														std::cout << i << " - " << yards[currentSalesyard].getWorkers()[i]->getName() << std::endl;
+													}
+													std::cin >> currentSalesman;
+													if (currentSalesman>=0 && currentSalesman<yards[currentSalesyard].getNumWorkers()) {
+														std::cout << "This car was bought for $" << yards[currentSalesyard].getYard()[currentVehicle]->getPrice() << " .How much was it sold for?" << std::endl;
+														std::cin >> tempPrice;
+														//yards[currentSalesyard].sellVehicle(currentVehicle, yards[currentSalesyard].getWorkers()[currentSalesman],tempPrice);
+													} else {
+														std::cout << "That is not a valid selection" << std::endl;
+													}
+												} else {
+													std::cout << "That is not a valid selection" << std::endl;
+													returnToSalesyardMenu=true;
+												}
+											}
+										}
 										break;
 									case '4':
 
