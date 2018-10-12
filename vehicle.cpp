@@ -60,4 +60,24 @@ void vehicle::setRegistration(std::string newRego){
 
 }   
 
+void vehicle::setPrice(int cPrice) {
+	purchasePrice=cPrice;
+}
+
+void vehicle::setYear(int cYear) {
+	year=cYear;
+}
+
+void vehicle::setMake(std::string cMake) {
+	make=cMake;
+}
+
+void vehicle::setModel(std::string cModel) {
+	model=cModel;
+}
+
+void vehicle::setBody_type(std::string cBodyType) {
+	body_type=cBodyType;
+}
+
 vehicle::~vehicle() {}

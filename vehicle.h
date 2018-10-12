@@ -24,8 +24,13 @@ public:
 	std::string getMake();
 	std::string getModel();
 	std::string getBody_type();
-	
-	void setRegistration(std::string newRego);
+
+	void setPrice(int cPrice);
+	void setYear(int cYear);
+	void setRegistration(std::string newRego); 
+	void setMake(std::string cMake);
+	void setModel(std::string cModel);
+	void setBody_type(std::string cBodyType);
 
 	~vehicle();
 

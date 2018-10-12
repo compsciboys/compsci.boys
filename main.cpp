@@ -9,7 +9,7 @@
 int main (void) {
 	bool run = true;
 	bool salesyardSelected = true;
-	bool carSelected = true;
+	bool vehicleSelected = true;
 	bool returnToMenu = true;
 	bool returnToSalesyardMenu = true;
 	char userInput;
@@ -21,9 +21,17 @@ int main (void) {
 	std::string tempName;
 	int tempCapacity;
 	std::string tempRego;
+
 	int currentSalesyard; //index of current salesyard in yards array
-	int currentCar; //index of current car in current salesyard
+	int currentVehicle; //index of current vehicle in current salesyard
 	int i;
+
+	std::string tempMake;
+	std::string tempModel;
+	int tempYear;
+	int tempPrice;
+	std::string tempBodyType;
+	vehicle tempVehicle;
 
 	while(run==true) {
 		std::cout << "\nMenu\n\n0 - Exit\n1 - Create new Salesyard\n2 - Select Salesyard\n" << std::endl;
@@ -38,7 +46,7 @@ int main (void) {
 					std::cout << "What would you like to name your salesyard?: ";
 					std::cin >>  tempName;
 
-					std::cout << "How many cars can '" << tempName << "' hold?: ";
+					std::cout << "How many vehicles can '" << tempName << "' hold?: ";
 					std::cin >> tempCapacity;
 
 					yards[numSalesyards].setName(tempName);
@@ -66,7 +74,7 @@ int main (void) {
 							std::cout << "You have selected the salesyard '" << yards[currentSalesyard].getName() << "'" << std::endl << "What would you like to do?" << std::endl;
 							salesyardSelected=true;
 							while (salesyardSelected==true) {
-								std::cout << "0 - Return to Menu\n1 - View Cars\n2 - Add Car\n3 - Sell Car\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard\n";
+								std::cout << "0 - Return to Menu\n1 - View vehicles\n2 - Add Vehicle\n3 - Sell Vehicle\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard\n";
 								std::cin.get();
 								std::cin.get(userInput);
 
@@ -78,35 +86,35 @@ int main (void) {
 									case '1':
 										returnToSalesyardMenu=false;
 										if (yards[currentSalesyard].getNumVehicles()>0) {
-											std::cout << "Select the car you would like to view" << std::endl;
+											std::cout << "Select the vehicle you would like to view" << std::endl;
 											std::cout << "0 - Return to Salesyard Menu" << std::endl;
 											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
 												std::cout << i << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << " \n" << std::endl;
 											}
 											while (returnToSalesyardMenu==false) {
-												std::cin >> currentCar;
+												std::cin >> currentVehicle;
 
-												if (currentCar < yards[currentSalesyard].getNumVehicles() && currentCar >= 0) {
-													std::cout << "You have selected the '" << yards[currentSalesyard].getYard()[currentCar]->getYear() << " " << yards[currentSalesyard].getYard()[currentCar]->getMake() << " " << yards[currentSalesyard].getYard()[currentCar]->getModel() << "'" << std::endl << "What would you like to do?" << std::endl;
-													carSelected=true;
+												if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
+													std::cout << "You have selected the '" << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << "'" << std::endl << "What would you like to do?" << std::endl;
+													vehicleSelected=true;
 
-													while (carSelected==true) {
+													while (vehicleSelected==true) {
 														std::cout << "0 - Return\n1 - View All Details\n2 - Change Registration\n";
 														std::cin.get();
 														std::cin.get(userInput);
 
 														switch (userInput) {
 															case '0':
-																carSelected=false;
+																vehicleSelected=false;
 																returnToSalesyardMenu=true;
 																break;
 															case '1':
-																//print car details nicely formatted
+																//print vehicle details nicely formatted
 																break;
 															case '2':
 																std::cout << "Enter New Registration: " << std::endl;
 																std::getline(std::cin, tempRego);
-																yards[currentSalesyard].getYard()[currentCar]->setRegistration(tempRego);
+																yards[currentSalesyard].getYard()[currentVehicle]->setRegistration(tempRego);
 															default:
 																std::cout << "That is an invalid input" << std::endl;
 														}
@@ -119,6 +127,27 @@ int main (void) {
 										break;
 									case '2':
 
+										std::cout << "Please enter the vehicle registration: " << std::endl; ;
+										std::cin >> tempRego;
+										std:: cout << "Please enter the vehicle badge: " << std::endl;
+										std::cin >> tempMake;
+										std::cout << "Please enter the vehicle model: " << std::endl;
+										std::cin >> tempModel;
+										std::cout << "Please enter the year of manufacture: " << std::endl;
+										std::cin >> tempYear;
+										std::cout << "Please enter the price of the vehicle: " << std::endl;
+										std::cin >> tempPrice;
+										std::cout << "Please enter the vehicle body type: " << std::endl;
+										std::cin >> tempBodyType;
+										if (tempBodyType=="Sedan") {
+
+										} else if (tempBodyType=="Truck") {
+
+										} else if (tempBodyType=="") {
+
+										}
+
+										//yards[currentSalesyard].addVehicle(&tempVehicle);
 										break;
 									case '3':
 
