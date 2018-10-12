@@ -192,7 +192,27 @@ int main (void) {
 										}
 										break;
 									case '4':
+										returnToSalesyardMenu=false;
+										if (yards[currentSalesyard].getNumWorkers()>0) {
+											std::cout << "Select the staff member you would like to view" << std::endl;
+											std::cout << "0 - Return to Salesyard Menu" << std::endl;
+											for (i=0;i<yards[currentSalesyard].getNumWorkers();i++) {
+												std::cout << i+1<< " - " << yards[currentSalesyard].getWorkers()[i]->getName() << std::endl;
+											}
+											while (returnToSalesyardMenu==false) {
+												std::cin >> currentSalesman;
+												currentSalesman--;
 
+												if (currentSalesman < yards[currentSalesyard].getNumWorkers() && currentSalesman >= 0) {
+													std::cout << "Name: " << yards[currentSalesyard].getWorkers()[i]->getName() << "\n Salary: $" << yards[currentSalesyard].getWorkers()[i]->getSalary()  << "\nJob Title:"  << yards[currentSalesyard].getWorkers()[i]->getJobTitle() << std::endl;
+													if (yards[currentSalesyard].getWorkers()[i]->getJobTitle()=="Salesman"){
+
+													}
+												}
+											}
+										} else {
+											std::cout << "Sorry this salesyard is empty" << std::endl;
+										}
 										break;
 									case '5':
 

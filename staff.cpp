@@ -28,5 +28,14 @@ void staff::setSalary(int pSalary) {
   salary=pSalary;
 }
 
+void staff::incrementCarsSold() {
+
+}
+
+void staff::increaseProfit(int income) {
+  
+}
+
+
 staff::~staff() {
 }

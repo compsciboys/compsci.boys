@@ -14,7 +14,6 @@ public:
 	int getProfit();
 
 	void incrementCarsSold();
-
 	void increaseProfit(int income);
 	~salesman();
 };

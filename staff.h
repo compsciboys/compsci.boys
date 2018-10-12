@@ -17,6 +17,8 @@ public:
 	std::string getJobTitle();
 	
 	void setSalary(int pSalary);
+	void incrementCarsSold();
+	void increaseProfit(int income);
 	
 	~staff();
 };

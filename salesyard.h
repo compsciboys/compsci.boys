@@ -23,7 +23,7 @@ public:
 	staff ** getWorkers();
 
 	bool addVehicle(vehicle *tempVehicle);
-	void sellVehicle(int index, salesman *worker, int price);
+	void sellVehicle(int index, staff *worker, int price);
 
 	bool addStaff(staff *newWorker);
 	void removeStaff(int index);
