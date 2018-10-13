@@ -10,7 +10,7 @@ public:
 	salesman();
 	salesman(std::string pName, int pSalary);
 
-	int getnumCarsSold();
+	int getNumCarsSold();
 	int getProfit();
 
 	void incrementCarsSold();

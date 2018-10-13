@@ -61,7 +61,8 @@ int main (void) {
 					numSalesyards++;
 				} else {
 					std::cout << "Sorry you have already have " << numSalesyards << " salesyards, the max amount of salesyards allowed" << std::endl;
-				}		
+				}
+				std::cin.get();		
 				break;
 			case '2':
 				returnToMenu=false;
@@ -79,9 +80,9 @@ int main (void) {
 
 							std::cout << "You have selected the salesyard '" << yards[currentSalesyard].getName() << "'" << std::endl << "What would you like to do?" << std::endl;
 							salesyardSelected=true;
+							std::cin.get();
 							while (salesyardSelected==true) {
 								std::cout << "0 - Return to Menu\n1 - View vehicles\n2 - Add Vehicle\n3 - Sell Vehicle\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard\n";
-								std::cin.get();
 								std::cin.get(userInput);
 
 								switch (userInput) {
@@ -95,10 +96,11 @@ int main (void) {
 											std::cout << "Select the vehicle you would like to view" << std::endl;
 											std::cout << "0 - Return to Salesyard Menu" << std::endl;
 											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
-												std::cout << i+1<< " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << " \n" << std::endl;
+												std::cout << i+1<< " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << std::endl;
 											}
 											while (returnToSalesyardMenu==false) {
 												std::cin >> currentVehicle;
+												std::cin.get();
 												currentVehicle--;
 
 												if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
@@ -107,7 +109,6 @@ int main (void) {
 
 													while (vehicleSelected==true) {
 														std::cout << "0 - Return\n1 - View All Details\n2 - Change Registration\n";
-														std::cin.get();
 														std::cin.get(userInput);
 
 														switch (userInput) {
@@ -162,15 +163,17 @@ int main (void) {
 										}
 										if (!yards[currentSalesyard].addVehicle(tempVehicle)) {
 											std::cout << "Sorry the salesyard is full" << std::endl;
+										} else {
+											std::cout << "Car added successfully" << std::endl;
 										}
-										delete tempVehicle;
+										std::cin.get();
 										break;
 									case '3':
 										returnToSalesyardMenu=false;
 										if (yards[currentSalesyard].getNumVehicles()>0) {
 											std::cout << "Select the vehicle you would like to sell" << std::endl;
 											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
-												std::cout << i << " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << " \n" << std::endl;
+												std::cout << i << " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << std::endl;
 											}
 											while (returnToSalesyardMenu==false) {
 												std::cin >> currentVehicle;
@@ -197,6 +200,7 @@ int main (void) {
 												} else {
 													std::cout << "That is not a valid selection" << std::endl;
 													returnToSalesyardMenu=true;
+													std::cin.get();
 												}
 											}
 										}
@@ -214,10 +218,13 @@ int main (void) {
 												currentSalesman--;
 
 												if (currentSalesman < yards[currentSalesyard].getNumWorkers() && currentSalesman >= 0) {
-													std::cout << "Name: " << yards[currentSalesyard].getWorkers()[i]->getName() << "\n Salary: $" << yards[currentSalesyard].getWorkers()[i]->getSalary()  << "\nJob Title:"  << yards[currentSalesyard].getWorkers()[i]->getJobTitle() << std::endl;
-													if (yards[currentSalesyard].getWorkers()[i]->getJobTitle()=="Salesman") {
-														//tempSalesman = static
+													std::cout << "Name: " << yards[currentSalesyard].getWorkers()[currentSalesman]->getName() << "\nSalary: $" << yards[currentSalesyard].getWorkers()[currentSalesman]->getSalary()  << "\nJob Title:"  << yards[currentSalesyard].getWorkers()[currentSalesman]->getJobTitle() << std::endl;
+													if (yards[currentSalesyard].getWorkers()[currentSalesman]->getJobTitle()=="Salesman") {
+														tempSalesman = static_cast<salesman *>(yards[currentSalesyard].getWorkers()[currentSalesman]);
+														std::cout << "Cars Sold: " << tempSalesman->getNumCarsSold() << "\nProfit: $" << tempSalesman->getProfit() << std::endl;
 													}
+													returnToSalesyardMenu=true;
+													std::cin.get();
 												}
 											}
 										} else {
@@ -225,12 +232,13 @@ int main (void) {
 										}
 										break;
 									case '5':
-										std::cout << "Please enter the Staff's name: " << std::endl;
-										std::cin >> tempName;
 										std::cout << "Please enter the Staff's salary: " << std::endl;
 										std::cin >> tempSalary;
+										std::cin.ignore();
+										std::cout << "Please enter the Staff's name: " << std::endl;
+										std::getline(std::cin, tempName);
 										std::cout << "Please enter the Staff's job title: " << std::endl;
-										std::cin >> tempJobTitle;
+										std::getline(std::cin, tempJobTitle);
 										if (tempJobTitle == "Salesman") {
 											tempSalesman = new salesman;
 											tempSalesman->setName(tempName);
@@ -246,7 +254,6 @@ int main (void) {
 											tempStaff->setJobTitle(tempJobTitle);
 											yards[currentSalesyard].addStaff(tempStaff);
 										}
-										
 										break;
 									case '6':
 										if (yards[currentSalesyard].getNumWorkers()>0) {
@@ -287,9 +294,7 @@ int main (void) {
 				break;
 			default:
 				std::cout << "That is an invalid input" << std::endl;
-
 		}
-		std::cin.get();
 	}	
 }
 

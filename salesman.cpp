@@ -3,14 +3,16 @@
 #include <string>
 
 salesman::salesman():staff("?",50000,"Salesman") {
-
+	profit = 0;
+	numCarsSold = 0;
 }
 
 salesman::salesman(std::string pName, int pSalary):staff(pName,pSalary,"Salesman") {
-
+	profit = 0;
+	numCarsSold = 0;
 }
 
-int salesman::getnumCarsSold() {
+int salesman::getNumCarsSold() {
 	return numCarsSold;
 }
 	
