@@ -43,6 +43,7 @@ int main (void) {
 	//bike *tempBike;
 	//van *tempVan;
 	//truck *tempTruck;
+	//coupe *tempCoupe;
 
 	salesman *tempSalesman;
 	staff *tempStaff;
@@ -132,19 +133,25 @@ int main (void) {
 																//std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
 																//std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
 																std::cout << "Body Type: " << yards[currentSalesyard].getYard()[currentVehicle]->getBody_type() << std::endl;
-																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") {
+																/*
+																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") { 
 																	std::cout << "~~~~~Truck Specific Details~~~~~" << std::endl;
+																	tempTruck = static_cast<truck *>(yards[currentSalesyard].getYard()[currentVehicle]);
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Van") {
 																	std::cout << "~~~~~Van specific Details~~~~~" << std::endl;
-
+																	tempVan = static_cast<van *>(yards[currentSalesyard].getYard()[currentVehicle]);
+	
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
 																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
+																	tempBike= static_cast<bike *>(yards[currentSalesyard].getYard()[currentVehicle]);
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Coupe") {
 																	std::cout << "~~~~~Coupe specific Details~~~~~" << std::endl;
+																	tempCoupe = static_cast<coupe *>(yards[currentSalesyard].getYard()[currentVehicle]);
 
 																}
+																*/
 																std::cin.get();
 																break;
 															case '2':
@@ -175,12 +182,48 @@ int main (void) {
 										std::cin >> tempPrice;
 										std::cout << "Please enter the vehicle body type: " << std::endl;
 										std::cin >> tempBodyType;
-										if (tempBodyType=="Truck") {
+										if (tempBodyType=="Truck") { /*
 
+
+											tempTruck=new truck(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+
+											if (!yards[currentSalesyard].addVehicle(tempTruck)) {
+												std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+												std::cout << "Truck added successfully" << std::endl;
+											}
 										} else if (tempBodyType=="Van") {
 
+
+											tempVan=new van(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+
+											if (!yards[currentSalesyard].addVehicle(tempVan)) {
+												std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+												std::cout << "Van added successfully" << std::endl;
+											}
 										} else if (tempBodyType=="Bike") {
 
+
+											tempBike=new bike(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+
+											if (!yards[currentSalesyard].addVehicle(tempBike)) {
+												std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+												std::cout << "Bike added successfully" << std::endl;
+											}
+												
+										} else if (tempBodyType=="Coupe") {
+
+
+											tempCoupe=new coupe(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+
+											if (!yards[currentSalesyard].addVehicle(tempCoupe)) {
+												std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+												std::cout << "Coupe added successfully" << std::endl;
+											}
+											*/
 										} else {
 											tempVehicle=new vehicle(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
 
@@ -261,7 +304,7 @@ int main (void) {
 										std::cin.ignore();
 										std::cout << "Please enter the Staff's name: " << std::endl;
 										std::getline(std::cin, tempName);
-										std::cout << "Please enter the Staff's job title: " << std::endl;
+										std::cout << "Please enter the Staff's job title (Salesman, etc.): " << std::endl;
 										std::getline(std::cin, tempJobTitle);
 										if (tempJobTitle == "Salesman") {
 											tempSalesman = new salesman(tempName, tempSalary);
