@@ -9,6 +9,8 @@ class vehicle {
 	std::string make;
 	std::string model;
 	std::string body_type;
+	int numberOfSeats;
+	int numberOfWheels;
 	int year;
 	int purchasePrice; 
 
