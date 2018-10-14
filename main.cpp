@@ -2,6 +2,9 @@
 #include "staff.h"
 #include "salesman.h"
 #include "salesyard.h"
+//include "van.h"
+//include "truck.h"
+//include "bike.h"
 
 #include <iostream>
 #include <string>
@@ -36,11 +39,14 @@ int main (void) {
 	std::string tempJobTitle;
 
 	vehicle *tempVehicle;
+	//bike *tempBike;
+	//van *tempVan;
+	//truck *tempTruck;
 
 	salesman *tempSalesman;
 	staff *tempStaff;
 	while(run==true) {
-		std::cout << "\nMenu\n\n0 - Exit\n1 - Create new Salesyard\n2 - Select Salesyard\n" << std::endl;
+		std::cout << "\n~~~~~~Menu~~~~~~\n\n0 - Exit\n1 - Create new Salesyard\n2 - Select Salesyard\n" << std::endl;
 		std::cin.get(userInput);
 
 		switch (userInput) {
@@ -73,6 +79,7 @@ int main (void) {
 					for (i=0; i<numSalesyards; i++) {
 						std::cout << i << " - " << yards[i].getName() << std::endl;
 					}
+					std::endl;
 					while (returnToMenu==false) {
 						std::cin >> currentSalesyard;
 
@@ -82,7 +89,7 @@ int main (void) {
 							salesyardSelected=true;
 							std::cin.get();
 							while (salesyardSelected==true) {
-								std::cout << "0 - Return to Menu\n1 - View vehicles\n2 - Add Vehicle\n3 - Sell Vehicle\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard\n";
+								std::cout << "0 - Return to Menu\n1 - View vehicles\n2 - Add Vehicle\n3 - Sell Vehicle\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard\n" << std::endl;
 								std::cin.get(userInput);
 
 								switch (userInput) {
@@ -117,7 +124,24 @@ int main (void) {
 																returnToSalesyardMenu=true;
 																break;
 															case '1':
-																//print vehicle details nicely formatted
+																std::cout << "Manufacturing Year: " << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << std::endl;
+																std::cout << "Purchase Price: " << yards[currentSalesyard].getYard()[currentVehicle]->getPrice() << std::endl;
+																std::cout << "Registration: " << yards[currentSalesyard].getYard()[currentVehicle]->getRegistration() << std::endl; 
+																std::cout << "Make: " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << std::endl;
+																std::cout << "Model: " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << std::endl;
+																//std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																//std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																std::cout << "Body Type: " << yards[currentSalesyard].getYard()[currentVehicle]->getBody_type() << std::endl;
+																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") {
+																	std::cout << "~~~~~Truck Specific Details~~~~~" << std::endl;
+
+																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Van") {
+																	std::cout << "~~~~~Van specific Details~~~~~" << std::endl;
+
+																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
+																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
+																	
+																}
 																break;
 															case '2':
 																std::cout << "Enter New Registration: " << std::endl;
@@ -147,24 +171,38 @@ int main (void) {
 										std::cin >> tempPrice;
 										std::cout << "Please enter the vehicle body type: " << std::endl;
 										std::cin >> tempBodyType;
-										if (tempBodyType=="Sedan") {
+										if (tempBodyType=="Truck") {
 
-										} else if (tempBodyType=="Truck") {
+										} else if (tempBodyType=="Van") {
 
-										} else if (tempBodyType=="") {
-
+										} else if (tempBodyType=="Bike") {
+										/*
+											tempBike=new bike;
+											tempBike->setRegistration(tempRego);
+											tempBike->setMake(tempMake);
+											tempBike->setModel(tempModel);
+											tempBike->setYear(tempYear);
+											tempBike->setPrice(tempPrice);
+											if (!yards[currentSalesyard].addVehicle(tempBike)) {
+												std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+												std::cout << "Car added successfully" << std::endl;
+											}
+										*/
 										} else {
-											tempVehicle=new vehicle;
+											tempVehicle=new vehicle(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+											/*
 											tempVehicle->setRegistration(tempRego);
 											tempVehicle->setMake(tempMake);
 											tempVehicle->setModel(tempModel);
 											tempVehicle->setYear(tempYear);
 											tempVehicle->setPrice(tempPrice);
-										}
-										if (!yards[currentSalesyard].addVehicle(tempVehicle)) {
-											std::cout << "Sorry the salesyard is full" << std::endl;
-										} else {
-											std::cout << "Car added successfully" << std::endl;
+											*/
+											if (!yards[currentSalesyard].addVehicle(tempVehicle)) {
+												std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+												std::cout << "Car added successfully" << std::endl;
+											}
 										}
 										std::cin.get();
 										break;

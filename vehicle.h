@@ -18,7 +18,7 @@ class vehicle {
 public: 
 
 	vehicle();
-	vehicle(std::string registration, std::string brand, std::string make, std::string body_type, int year, int price);
+	vehicle(std::string registration, std::string make, std::string model, std::string body_type, int year, int price);
 	
 	int getPrice();
 	int getYear();
