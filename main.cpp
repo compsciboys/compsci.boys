@@ -180,28 +180,10 @@ int main (void) {
 										} else if (tempBodyType=="Van") {
 
 										} else if (tempBodyType=="Bike") {
-										/*
-											tempBike=new bike;
-											tempBike->setRegistration(tempRego);
-											tempBike->setMake(tempMake);
-											tempBike->setModel(tempModel);
-											tempBike->setYear(tempYear);
-											tempBike->setPrice(tempPrice);
-											if (!yards[currentSalesyard].addVehicle(tempBike)) {
-												std::cout << "Sorry the salesyard is full" << std::endl;
-											} else {
-												std::cout << "Car added successfully" << std::endl;
-											}
-										*/
+
 										} else {
 											tempVehicle=new vehicle(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
-											/*
-											tempVehicle->setRegistration(tempRego);
-											tempVehicle->setMake(tempMake);
-											tempVehicle->setModel(tempModel);
-											tempVehicle->setYear(tempYear);
-											tempVehicle->setPrice(tempPrice);
-											*/
+
 											if (!yards[currentSalesyard].addVehicle(tempVehicle)) {
 												std::cout << "Sorry the salesyard is full" << std::endl;
 											} else {
