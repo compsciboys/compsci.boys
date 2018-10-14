@@ -5,6 +5,7 @@
 //include "van.h"
 //include "truck.h"
 //include "bike.h"
+//include "coupe.h"
 
 #include <iostream>
 #include <string>
@@ -79,7 +80,6 @@ int main (void) {
 					for (i=0; i<numSalesyards; i++) {
 						std::cout << i << " - " << yards[i].getName() << std::endl;
 					}
-					std::endl;
 					while (returnToMenu==false) {
 						std::cin >> currentSalesyard;
 
@@ -140,6 +140,9 @@ int main (void) {
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
 																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
+
+																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Coupe") {
+																	std::cout << "~~~~~Coupe specific Details~~~~~" << std::endl;
 
 																}
 																std::cin.get();
@@ -279,18 +282,10 @@ int main (void) {
 										std::cout << "Please enter the Staff's job title: " << std::endl;
 										std::getline(std::cin, tempJobTitle);
 										if (tempJobTitle == "Salesman") {
-											tempSalesman = new salesman;
-											tempSalesman->setName(tempName);
-											tempSalesman->setSalary(tempSalary);
-											tempSalesman->setJobTitle(tempJobTitle);
+											tempSalesman = new salesman(tempName, tempSalary);
 											yards[currentSalesyard].addStaff(tempSalesman);
-										} else if (tempJobTitle == "test") {
-											
 										} else {
-											tempStaff = new staff;
-											tempStaff->setName(tempName);
-											tempStaff->setSalary(tempSalary);
-											tempStaff->setJobTitle(tempJobTitle);
+											tempStaff = new staff(tempName, tempSalary, tempJobTitle);
 											yards[currentSalesyard].addStaff(tempStaff);
 										}
 										break;
