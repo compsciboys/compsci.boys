@@ -140,8 +140,9 @@ int main (void) {
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
 																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
-																	
+
 																}
+																std::cin.get();
 																break;
 															case '2':
 																std::cout << "Enter New Registration: " << std::endl;
