@@ -6,7 +6,7 @@ truck::truck()
 {
 	registration = "??????";
 	model = "Not Specified";
-	body_type = "truck";
+	body_type = "Truck";
 	year = "2018";
 	purchasePrice = "-1";
 	numberOfSeats = 4;
@@ -18,7 +18,7 @@ truck::truck(std::string crego, std::string cmake, std::string cmodel, int cyear
 	registration = crego;
 	make = cmake;
 	model = cmodel;
-	body_type = "Coupe";
+	body_type = "Truck";
 	year = cyear;
 	purchasePrice = cprice;
 	numberOfSeats = 4;
