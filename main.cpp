@@ -169,7 +169,7 @@ int main (void) {
 										}
 										break;
 									case '2':
-
+										//do check for variable type?
 										std::cout << "Please enter the vehicle registration: " << std::endl;
 										std::cin >> tempRego;
 										std:: cout << "Please enter the vehicle badge: " << std::endl;
