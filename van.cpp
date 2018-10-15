@@ -18,7 +18,7 @@ van::van(std::string crego, std::string cmake, std::string cmodel, int cyear, in
 	registration = crego;
 	make = cmake;
 	model = cmodel;
-	body_type = "Coupe";
+	body_type = "Van";
 	year = cyear;
 	purchasePrice = cprice;
 	numberOfSeats = 2;
