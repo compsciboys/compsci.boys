@@ -8,7 +8,9 @@ vehicle::vehicle(){
 	model = "No Model";
 	body_type = "No Body Type";
 	year = 2018;
-	purchasePrice = 10000; 
+	purchasePrice = 10000;
+    numberOfWheels = 4;
+    numberOfSeats = 5; 
 
 }
 

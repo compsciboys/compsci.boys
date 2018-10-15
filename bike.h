@@ -5,14 +5,19 @@
 
 class bike: public vehicle 
 {
-	int numberOfWheels;
 	bool includeHelmet;
 
 public:
 
-	//Setters
-	coupe();
-	coupe(std::string registration, std::string brand, std::string make, std::string body_type, int year, int price);
-	bool includeHelmet();
+	//Initialisers
+	bike();
+	bike(std::string registration, std::string brand, std::string make, int year, int price);
 
-}
+    //Setters
+	bool includeHelmet();
+    
+    ~bike();
+
+};
+
+#endif
