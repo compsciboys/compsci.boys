@@ -14,10 +14,7 @@ public:
 	bike(std::string registration, std::string brand, std::string make, int year, int price);
 
     //Setters
-	bool addHelmet();
-
-	//Getters
-	bool getHelmet();
+	bool includeHelmet();
     
     ~bike();
 

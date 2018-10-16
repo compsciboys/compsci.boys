@@ -1,59 +1,37 @@
 #include <string>
+#include <iostream>
 #include "vehicle.h"
 #include "bike.h"
 
-bike::bike()
+bike::bike():vehicle("??????", "Not Specified", "Not Specified", "Bike", 2018, 0)
 {
-	registration = "??????";
-	model = "Not Specified";
-	body_type = "Bike";
-	year = "2018";
-	purchasePrice = "-1";
 	numberOfWheels = 2;
 	numberOfSeats = 1;
 }
 
-bike::bike(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice)
+bike::bike(std::string registration, std::string make, std::string model, int year, int price, bool includeHelmet):vehicle(registration, make, model, "Bike", year, price)
 {
-	registration = crego;
-	make = cmake;
-	model = cmodel;
-	body_type = "Bike";
-	year = cyear;
-	purchasePrice = cprice;
 	numberOfWheels = 2;
 	numberOfSeats = 1;
 }
 
-bool includeHelmet();
+bool bike::addHelmet()
 {
-	char input;
-
-	if (includeHelmet == true)
+	if (includeHelmet == false)
 	{
-		std::cout << "You have already inclded a helmet in this sale" << endl;
+		includeHelmet = true;
+		return true;
 	}
-	else if (incldeHelmet == false)
+	else if (includeHelmet == true)
 	{
-		std::cout << "A helmet has not been included in this sale, would you like to include a helmet? [Y/N]: ";
-		std::cin >> input;
-
-		switch(input)
-		{
-			case 'y' :
-			includeHelmet = true; 
-				cout << "A helmet has been included in this sale" << endl; 
-				break;
-
-			case 'n' : 
-				incldeHelmet = false;
-				cout << "A helmet will not be included in this sale" << endl;
-				break;
-
-			default :
-				cout << "Invalid input, please enter y for 'yes' and n for 'no'" << endl;
-		}
+		return false;
 	}
 }
+
+bool bike::getHelmet()
+{
+	return includeHelmet;
+}
+
 
 bike::~bike() {}
