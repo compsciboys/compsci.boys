@@ -3,8 +3,7 @@
 
 #include <string>
 
-class van: public vehicle 
-{
+class van: public vehicle {
 	int storageSpace;
 
 public:

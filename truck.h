@@ -3,21 +3,20 @@
 
 #include <string>
 
-class truck: public vehicle 
-{
+class truck: public vehicle {
 	int towingCap;
 
 public:
 
 	//Initialisers
 	truck();
-	truck(std::string registration, std::string brand, std::string make, std::string body_type, int year, int price);
+	truck(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int towingCap);
 
 	//Getters
 	int getTowingCap();
     
     //Setters
-    int setTowingCap();
+    void setTowingCap(int cTowing);
 
     ~truck();
 

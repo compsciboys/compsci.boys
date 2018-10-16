@@ -2,35 +2,25 @@
 #include "vehicle.h"
 #include "truck.h"
 
-truck::truck()
+truck::truck():vehicle("??????", "Not Specified", "Not Specified", "Truck", 2018, 0)
 {
-	registration = "??????";
-	model = "Not Specified";
-	body_type = "Truck";
-	year = "2018";
-	purchasePrice = "-1";
-	numberOfSeats = 4;
-	towingCap  = "-1";
+	numberOfSeats = 2;
+	numberOfWheels = 4;
+	towingCap=0;
 }
 
-truck::truck(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int ctowingCap)
-{
-	registration = crego;
-	make = cmake;
-	model = cmodel;
-	body_type = "Truck";
-	year = cyear;
-	purchasePrice = cprice;
-	numberOfSeats = 4;
-	towingCap = ctowingCap;
+truck::truck(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int towing):vehicle(registration, make, model, body_type, year, price) {
+	numberOfSeats = 2;
+	numberOfWheels = 4;
+	towingCap=towing;
 }
 
-truck::getTowingCap()
+int truck::getTowingCap()
 {
 	return towingCap;
 }
 
-truck::setTowingCap(int ctowingCap)
+void truck::setTowingCap(int ctowingCap)
 {
 	towingCap = ctowingCap;
 }
