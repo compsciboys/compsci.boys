@@ -10,7 +10,7 @@ public:
 
 	//Initialisers
 	truck();
-	truck(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int towingCap);
+	truck(std::string registration, std::string make, std::string model, int year, int price, int towingCap);
 
 	//Getters
 	int getTowingCap();

@@ -9,7 +9,7 @@ truck::truck():vehicle("??????", "Not Specified", "Not Specified", "Truck", 2018
 	towingCap=0;
 }
 
-truck::truck(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int towing):vehicle(registration, make, model, body_type, year, price) {
+truck::truck(std::string registration, std::string make, std::string model, int year, int price, int towing):vehicle(registration, make, model, "Truck", year, price) {
 	numberOfSeats = 2;
 	numberOfWheels = 4;
 	towingCap=towing;
