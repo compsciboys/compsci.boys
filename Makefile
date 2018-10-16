@@ -1,5 +1,5 @@
 main: main.cpp salesyard.cpp staff.cpp vehicle.cpp salesman.cpp
-	g++ -Wall -g -o main staff.cpp vehicle.cpp salesman.cpp salesyard.cpp main.cpp 
+	g++ -Wall -g -o main staff.cpp vehicle.cpp salesman.cpp salesyard.cpp van.cpp coupe.cpp bike.cpp truck.cpp main.cpp 
 
 #main: main.o salesyard.o staff.o vehicle.o manager.o salesman.o 
 #	g++ -Wall -g -o main main.o salesyard.o staff.o vehicle.o manager.o salesman.o  

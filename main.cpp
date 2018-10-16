@@ -2,10 +2,10 @@
 #include "staff.h"
 #include "salesman.h"
 #include "salesyard.h"
-//include "van.h"
-//include "truck.h"
-//include "bike.h"
-//include "coupe.h"
+#include "van.h"
+#include "truck.h"
+#include "bike.h"
+#include "coupe.h"
 
 #include <iostream>
 #include <string>
@@ -40,10 +40,10 @@ int main (void) {
 	std::string tempJobTitle;
 
 	vehicle *tempVehicle;
-	//bike *tempBike;
-	//van *tempVan;
-	//truck *tempTruck;
-	//coupe *tempCoupe;
+	bike *tempBike;
+	van *tempVan;
+	truck *tempTruck;
+	coupe *tempCoupe;
 
 	salesman *tempSalesman;
 	staff *tempStaff;

@@ -5,19 +5,19 @@
 
 class van: public vehicle 
 {
-	int strorageSpace;
+	int storageSpace;
 
 public:
 
 	//Initialisers 
 	van();
-	van(std::string registration, std::string brand, std::string make, std::string body_type, int year, int price);
+	van(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int storage);
 
 	//Getters
-	int getStrorageSpace();
+	int getStorageSpace();
     
     //Setters 
-    int setStorageSpace();
+    void setStorageSpace(int cStorageSpace);
 
     ~van();
 

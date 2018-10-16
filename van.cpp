@@ -2,37 +2,26 @@
 #include "vehicle.h"
 #include "van.h"
 
-van::van()
+van::van():vehicle("??????", "Not Specified", "Not Specified", "Van", 2018, 0)
 {
-	registration = "??????";
-	model = "Not Specified";
-	body_type = "Van";
-	year = "2018";
-	purchasePrice = "-1";
-	numberOfSeats = 2;
-	storageSpace  = "-1";
+	storageSpace=0;
 }
 
-van::van(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cstorageSpace)
+van::van(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int storage):vehicle(registration, make, model, body_type, year, price)
 {
-	registration = crego;
-	make = cmake;
-	model = cmodel;
-	body_type = "Van";
-	year = cyear;
-	purchasePrice = cprice;
 	numberOfSeats = 2;
-	storageSpace = cstorageSpace;
+	numberOfWheels = 4;
+	storageSpace = storage;
 }
 
-van::getStroageSpace()
+int van::getStorageSpace()
 {
 	return storageSpace;
 }
 
-van::storageSpace(int cstorageSpace)
+void van::setStorageSpace(int cStorageSpace)
 {
-	storageSpace = cstorageSpace;
+	storageSpace = cStorageSpace;
 }
 
 van::~van() {}
