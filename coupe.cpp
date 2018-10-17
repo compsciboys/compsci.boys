@@ -2,26 +2,19 @@
 #include "vehicle.h"
 #include "coupe.h"
 
-coupe::coupe()
+coupe::coupe():vehicle("??????", "Not Specified", "Not Specified", "Coupe", 2018, 0)
 {
-	registration = "??????";
-	model = "Not Specified";
-	body_type = "Coupe";
-	year = "2018";
-	purchasePrice = "-1";
+
 	numberOfSeats = 2;
+	numberOfWheels = 4;
 	performance  = "-1";
 }
 
 coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cperformance)
 {
-	registration = crego;
-	make = cmake;
-	model = cmodel;
-	body_type = "Coupe";
-	year = cyear;
-	purchasePrice = cprice;
+	
 	numberOfSeats = 2;
+	numberOfWheels = 4; 
 	performance = cperformance;
 }
 
