@@ -3,7 +3,6 @@
 #include "vehicle.h"
 
 #include <string>
-#include "vehicle.h"
 
 class bike: public vehicle 
 {
