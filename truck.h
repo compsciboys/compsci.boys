@@ -2,6 +2,7 @@
 #define TRUCK_H
 
 #include <string>
+#include "vehicle.h"
 
 class truck: public vehicle {
 	int towingCap;
