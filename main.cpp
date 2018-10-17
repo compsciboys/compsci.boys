@@ -149,15 +149,23 @@ int main (void) {
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Van") {
 																	std::cout << "~~~~~Van specific Details~~~~~" << std::endl;
 																	tempVan = static_cast<van *>(yards[currentSalesyard].getYard()[currentVehicle]);
+																	std::cout << "Storing Capacity: " << tempVan->getStorageCapacity() << std::endl;
 	
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
 																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
 																	tempBike= static_cast<bike *>(yards[currentSalesyard].getYard()[currentVehicle]);
+																	std::cout << "Helmet: " << tempVan->getStorageCapacity() << std::endl;
+																	if (tempVan->getHelmet()==true) {
+																		std::cout << "Included" << std::endl;
+																	} else {
+																		std::cout << "Not Included" << std::endl;
+																	}
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Coupe") {
 																	std::cout << "~~~~~Coupe specific Details~~~~~" << std::endl;
 																	tempCoupe = static_cast<coupe *>(yards[currentSalesyard].getYard()[currentVehicle]);
-
+																	std::cout << "Performance: " << tempVan->getPerformance() << std::endl;	
+																	
 																}
 																*/
 																std::cin.get();
