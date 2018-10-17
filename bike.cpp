@@ -19,15 +19,12 @@ bike::bike(std::string registration, std::string make, std::string model, int ye
 
 bool bike::addHelmet()
 {
-	if (includeHelmet == false)
-	{
+	if (includeHelmet == false) {
 		includeHelmet = true;
 		return true;
-	}
-	else if (includeHelmet == true)
-	{
+	} else {
 		return false;
-	}
+	} 
 }
 
 bool bike::getHelmet()

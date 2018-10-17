@@ -10,7 +10,7 @@ coupe::coupe():vehicle("??????", "Not Specified", "Not Specified", "Coupe", 2018
 	performance  = 0;
 }
 
-coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cperformance):vehicle(crego, cmake, cmodel, "Bike", cyear, cprice)
+coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cperformance):vehicle(crego, cmake, cmodel, "Coupe", cyear, cprice)
 {
 	
 	numberOfSeats = 2;

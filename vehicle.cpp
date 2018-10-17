@@ -55,6 +55,13 @@ int vehicle::getYear(){
 	return year;
 }
 
+int vehicle::getNumSeats() {
+	return numberOfSeats;
+}
+
+int vehicle::getNumWheels() {
+	return numberOfWheels;
+}
 
 void vehicle::setRegistration(std::string newRego){
 

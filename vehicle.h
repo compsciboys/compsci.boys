@@ -24,6 +24,8 @@ public:
 	std::string getMake();
 	std::string getModel();
 	std::string getBody_type();
+	int getNumSeats();
+	int getNumWheels();
 
 	void setPrice(int cPrice);
 	void setYear(int cYear);

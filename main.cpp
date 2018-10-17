@@ -48,7 +48,7 @@ int main (void) {
 
 	int tempTowing;
 	int tempStorage;
-	char tempHelmet;
+	char tempHelmet = 'c';
 	int tempPerformance;
 
 
@@ -137,25 +137,25 @@ int main (void) {
 																std::cout << "Registration: " << yards[currentSalesyard].getYard()[currentVehicle]->getRegistration() << std::endl; 
 																std::cout << "Make: " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << std::endl;
 																std::cout << "Model: " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << std::endl;
-																//std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
-																//std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->getNumWheels() << std::endl;
+																std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->getNumSeats() << std::endl;
 																std::cout << "Body Type: " << yards[currentSalesyard].getYard()[currentVehicle]->getBody_type() << std::endl;
-																/*
+																
 																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") { 
 																	std::cout << "~~~~~Truck Specific Details~~~~~" << std::endl;
 																	tempTruck = static_cast<truck *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Towing Capacity: " << tempTruck->getTowingCapacity() << std::endl;
+																	std::cout << "Towing Capacity: " << tempTruck->getTowingCap() << std::endl;
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Van") {
 																	std::cout << "~~~~~Van specific Details~~~~~" << std::endl;
 																	tempVan = static_cast<van *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Storing Capacity: " << tempVan->getStorageCapacity() << std::endl;
+																	std::cout << "Storing Capacity: " << tempVan->getStorageSpace() << std::endl;
 	
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
 																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
 																	tempBike= static_cast<bike *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Helmet: " << tempVan->getStorageCapacity() << std::endl;
-																	if (tempVan->getHelmet()==true) {
+																	std::cout << "Helmet: " << std::endl;
+																	if (tempBike->getHelmet()==true) {
 																		std::cout << "Included" << std::endl;
 																	} else {
 																		std::cout << "Not Included" << std::endl;
@@ -164,10 +164,10 @@ int main (void) {
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Coupe") {
 																	std::cout << "~~~~~Coupe specific Details~~~~~" << std::endl;
 																	tempCoupe = static_cast<coupe *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Performance: " << tempVan->getPerformance() << std::endl;	
+																	std::cout << "Performance: " << tempCoupe->getPerformance() << std::endl;	
 
 																}
-																*/
+																
 																std::cin.get();
 																break;
 															case '2':
@@ -185,7 +185,6 @@ int main (void) {
 										}
 										break;
 									case '2':
-										//do check for variable type?
 										std::cout << "Please enter the vehicle registration: " << std::endl;
 										std::cin >> tempRego;
 										std:: cout << "Please enter the vehicle badge: " << std::endl;
@@ -198,7 +197,7 @@ int main (void) {
 										std::cin >> tempPrice;
 										std::cout << "Please enter the vehicle body type (Truck, Van, Bike, Coupe, etc.):" << std::endl;
 										std::cin >> tempBodyType;
-										if (tempBodyType=="Truck") { /*
+										if (tempBodyType=="Truck") { 
 											std::cout << "Please enter the towing capacity of this truck" << std::endl;
 											std::cin >> tempTowing;
 
@@ -223,8 +222,8 @@ int main (void) {
 										} else if (tempBodyType=="Bike") {
 											std::cout << "Does this bike contain a helmet (y/n): " << std::endl;
 											cont =true;
-											while (continue) {
-												std::cin.get() >> tempHelmet;
+											while (cont) {
+												std::cin.get(tempHelmet);
 												if (tempHelmet=='y') {
 													tempBike=new bike(tempRego, tempMake, tempModel, tempYear, tempPrice, true);
 													cont = false;
@@ -233,7 +232,7 @@ int main (void) {
 													cont = false;
 												} else {
 													cont = true;
-													std::cout << "Invalid input. Does this bike contain a helmet (y/n): "
+													std::cout << "Invalid input. Does this bike contain a helmet (y/n): " << std::endl;
 												}
 											}
 											if (!yards[currentSalesyard].addVehicle(tempBike)) {
@@ -252,7 +251,7 @@ int main (void) {
 											} else {
 												std::cout << "Coupe added successfully" << std::endl;
 											}
-											*/
+											
 										} else {
 											tempVehicle=new vehicle(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
 
