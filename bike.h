@@ -2,6 +2,7 @@
 #define BIKE_H
 
 #include <string>
+#include "vehicle.h"
 
 class bike: public vehicle 
 {
