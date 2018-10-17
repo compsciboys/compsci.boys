@@ -2,6 +2,7 @@
 #define COUPE_H
 
 #include <string>
+#include "vehicle.h"
 
 class coupe: public vehicle 
 {
