@@ -10,7 +10,7 @@ public:
 
 	//Initialisers 
 	van();
-	van(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int storage);
+	van(std::string registration, std::string make, std::string model, int year, int price, int storage);
 
 	//Getters
 	int getStorageSpace();

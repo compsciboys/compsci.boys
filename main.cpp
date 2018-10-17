@@ -17,6 +17,7 @@ int main (void) {
 	bool returnToMenu = true;
 	bool returnToSalesyardMenu = true;
 	char userInput;
+	bool cont;
 	int numSalesyards = 0;
 	int maxSalesyards = 5;
 	salesyard *yards;
@@ -44,6 +45,12 @@ int main (void) {
 	van *tempVan;
 	truck *tempTruck;
 	coupe *tempCoupe;
+
+	int tempTowing;
+	int tempStorage;
+	char tempHelmet;
+	int tempPerformance;
+
 
 	salesman *tempSalesman;
 	staff *tempStaff;
@@ -130,8 +137,8 @@ int main (void) {
 																std::cout << "Registration: " << yards[currentSalesyard].getYard()[currentVehicle]->getRegistration() << std::endl; 
 																std::cout << "Make: " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << std::endl;
 																std::cout << "Model: " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << std::endl;
-																//std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
-																//std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
 																std::cout << "Body Type: " << yards[currentSalesyard].getYard()[currentVehicle]->getBody_type() << std::endl;
 																/*
 																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") { 
@@ -180,12 +187,13 @@ int main (void) {
 										std::cin >> tempYear;
 										std::cout << "Please enter the price of the vehicle: " << std::endl;
 										std::cin >> tempPrice;
-										std::cout << "Please enter the vehicle body type: " << std::endl;
+										std::cout << "Please enter the vehicle body type (Truck, Van, Bike, Coupe, etc.):" << std::endl;
 										std::cin >> tempBodyType;
 										if (tempBodyType=="Truck") { /*
+											std::cout << "Please enter the towing capacity of this truck" << std::endl;
+											std::cin >> tempTowing;
 
-
-											tempTruck=new truck(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+											tempTruck=new truck(tempRego, tempMake, tempModel, tempYear, tempPrice, tempTowing);
 
 											if (!yards[currentSalesyard].addVehicle(tempTruck)) {
 												std::cout << "Sorry the salesyard is full" << std::endl;
@@ -193,9 +201,10 @@ int main (void) {
 												std::cout << "Truck added successfully" << std::endl;
 											}
 										} else if (tempBodyType=="Van") {
+											std::cout << "Please enter the storage capacity of this van" << std::endl;
+											std::cin >> tempStorage;
 
-
-											tempVan=new van(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+											tempVan=new van(tempRego, tempMake, tempBodyType, tempYear, tempPrice, tempStorage);
 
 											if (!yards[currentSalesyard].addVehicle(tempVan)) {
 												std::cout << "Sorry the salesyard is full" << std::endl;
@@ -203,20 +212,31 @@ int main (void) {
 												std::cout << "Van added successfully" << std::endl;
 											}
 										} else if (tempBodyType=="Bike") {
-
-
-											tempBike=new bike(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
-
-											if (!yards[currentSalesyard].addVehicle(tempBike)) {
-												std::cout << "Sorry the salesyard is full" << std::endl;
-											} else {
-												std::cout << "Bike added successfully" << std::endl;
+											std::cout << "Does this bike contain a helmet (y/n): " << std::endl;
+											cont =true;
+											while (continue) {
+												std::cin.get() >> tempHelmet;
+												if (tempHelmet=='y') {
+													tempBike=new bike(tempRego, tempMake, tempModel, tempYear, tempPrice, true);
+													cont = false;
+												} else if (tempHelmet=='n') {
+													tempBike=new bike(tempRego, tempMake, tempModel, tempYear, tempPrice, false);
+													cont = false;
+												} else {
+													cont = true;
+													std::cout << "Invalid input. Does this bike contain a helmet (y/n): "
+												}
 											}
-												
+											if (!yards[currentSalesyard].addVehicle(tempBike)) {
+													std::cout << "Sorry the salesyard is full" << std::endl;
+											} else {
+													std::cout << "Bike added successfully" << std::endl;
+											}
 										} else if (tempBodyType=="Coupe") {
+											std::cout << "Please enter the performance of this car (kWh): " << std::endl;
+											std::cin >> tempPerformance;
 
-
-											tempCoupe=new coupe(tempRego, tempMake, tempModel, tempBodyType, tempYear, tempPrice);
+											tempCoupe=new coupe(tempRego, tempMake, tempModel, tempYear, tempPrice, tempPerformance);
 
 											if (!yards[currentSalesyard].addVehicle(tempCoupe)) {
 												std::cout << "Sorry the salesyard is full" << std::endl;

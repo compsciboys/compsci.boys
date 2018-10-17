@@ -4,7 +4,6 @@
 #include <string>
 
 class vehicle {
-
 	std::string registration;
 	std::string make;
 	std::string model;

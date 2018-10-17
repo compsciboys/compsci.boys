@@ -8,7 +8,7 @@ van::van():vehicle("??????", "Not Specified", "Not Specified", "Van", 2018, 0) {
 	storageSpace=0;
 }
 
-van::van(std::string registration, std::string make, std::string model, std::string body_type, int year, int price, int storage):vehicle(registration, make, model, body_type, year, price) {
+van::van(std::string registration, std::string make, std::string model, int year, int price, int storage):vehicle(registration, make, model, "Van", year, price) {
 	numberOfSeats = 2;
 	numberOfWheels = 4;
 	storageSpace = storage;
