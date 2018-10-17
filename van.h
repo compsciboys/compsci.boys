@@ -1,5 +1,6 @@
 #ifndef VAN_H
 #define VAN_H
+#include "vehicle.h"
 
 #include <string>
 
