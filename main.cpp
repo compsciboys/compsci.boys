@@ -20,7 +20,7 @@ int main (void) {
 	bool cont;
 	int numSalesyards = 0;
 	int maxSalesyards = 5;
-	salesyard *yards;
+	salesyard *yards;                                            
 	yards = new salesyard[maxSalesyards];
 
 	std::string tempName;
@@ -51,9 +51,9 @@ int main (void) {
 	char tempHelmet = 'c';
 	int tempPerformance;
 
-
 	salesman *tempSalesman;
 	staff *tempStaff;
+
 	while(run==true) {
 		std::cout << "\n~~~~~~Menu~~~~~~\n\n0 - Exit\n1 - Create new Salesyard\n2 - Select Salesyard\n" << std::endl;
 		std::cin.get(userInput);
@@ -65,7 +65,8 @@ int main (void) {
 			case '1':
 				if (numSalesyards<maxSalesyards) {
 					std::cout << "What would you like to name your salesyard?: ";
-					std::cin >>  tempName;
+					std::cin.ignore();
+					std::getline(std::cin, tempName);
 
 					std::cout << "How many vehicles can '" << tempName << "' hold?: ";
 					std::cin >> tempCapacity;
@@ -172,8 +173,10 @@ int main (void) {
 																break;
 															case '2':
 																std::cout << "Enter New Registration: " << std::endl;
+																std::cin.get();
 																std::getline(std::cin, tempRego);
 																yards[currentSalesyard].getYard()[currentVehicle]->setRegistration(tempRego);
+																std::cin.ignore();
 															default:
 																std::cout << "That is an invalid input" << std::endl;
 														}
