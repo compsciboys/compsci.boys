@@ -7,7 +7,7 @@ coupe::coupe():vehicle("??????", "Not Specified", "Not Specified", "Coupe", 2018
 
 	numberOfSeats = 2;
 	numberOfWheels = 4;
-	performance  = "-1";
+	performance  = 0;
 }
 
 coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cperformance)
