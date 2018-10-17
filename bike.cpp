@@ -3,7 +3,7 @@
 #include "vehicle.h"
 #include "bike.h"
 
-bike::bike():vehicle("??????", "Not Specified", "Not Specified", "Bike", 2018, 0)
+bike::bike():vehicle("??????", "Not Specified", "Not Specified", 2018, 0, false)
 {
 	numberOfWheels = 2;
 	numberOfSeats = 1;
