@@ -137,8 +137,8 @@ int main (void) {
 																std::cout << "Registration: " << yards[currentSalesyard].getYard()[currentVehicle]->getRegistration() << std::endl; 
 																std::cout << "Make: " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << std::endl;
 																std::cout << "Model: " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << std::endl;
-																std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
-																std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																//std::cout << "Number of Wheels: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
+																//std::cout << "Number of Seats: " << yards[currentSalesyard].getYard()[currentVehicle]->get() << std::endl;
 																std::cout << "Body Type: " << yards[currentSalesyard].getYard()[currentVehicle]->getBody_type() << std::endl;
 																/*
 																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") { 
@@ -165,7 +165,7 @@ int main (void) {
 																	std::cout << "~~~~~Coupe specific Details~~~~~" << std::endl;
 																	tempCoupe = static_cast<coupe *>(yards[currentSalesyard].getYard()[currentVehicle]);
 																	std::cout << "Performance: " << tempVan->getPerformance() << std::endl;	
-																	
+
 																}
 																*/
 																std::cin.get();

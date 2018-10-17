@@ -12,13 +12,13 @@ public:
 
 	//Initialisers
 	coupe();
-	coupe(std::string registration, std::string brand, std::string make, int year, int price);
+	coupe(std::string registration, std::string make, std::string model, int year, int price, int performance);
 
 	//Getters
 	int getPerformance();
     
     //Setters
-    int setPerformance();
+    void setPerformance(int performance);
     
     
     ~coupe();

@@ -10,7 +10,7 @@ coupe::coupe():vehicle("??????", "Not Specified", "Not Specified", "Coupe", 2018
 	performance  = 0;
 }
 
-coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cperformance)
+coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear, int cprice, int cperformance):vehicle(crego, cmake, cmodel, "Bike", cyear, cprice)
 {
 	
 	numberOfSeats = 2;
@@ -18,12 +18,12 @@ coupe::coupe(std::string crego, std::string cmake, std::string cmodel, int cyear
 	performance = cperformance;
 }
 
-coupe::getPerformance()
+int coupe::getPerformance()
 {
-	return cperformance;
+	return performance;
 }
 
-coupe::setPerformance(int cperformance)
+void coupe::setPerformance(int cperformance)
 {
 	performance = cperformance;
 }
