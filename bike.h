@@ -11,7 +11,7 @@ public:
 
 	//Initialisers
 	bike();
-	bike(std::string registration, std::string brand, std::string make, int year, int price);
+	bike(std::string registration, std::string brand, std::string make, int year, int price, bool includeHelmet);
 
 	//Setters
 	bool addHelmet();
