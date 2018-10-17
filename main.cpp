@@ -144,6 +144,7 @@ int main (void) {
 																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") { 
 																	std::cout << "~~~~~Truck Specific Details~~~~~" << std::endl;
 																	tempTruck = static_cast<truck *>(yards[currentSalesyard].getYard()[currentVehicle]);
+																	std::cout << "Towing Capacity: " << tempTruck->getTowingCapacity() << std::endl;
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Van") {
 																	std::cout << "~~~~~Van specific Details~~~~~" << std::endl;
