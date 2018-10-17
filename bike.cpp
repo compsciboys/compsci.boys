@@ -3,16 +3,18 @@
 #include "vehicle.h"
 #include "bike.h"
 
-bike::bike():vehicle("??????", "Not Specified", "Not Specified", 2018, 0, false)
+bike::bike():vehicle("??????", "Not Specified", "Not Specified", "Bike", 2018, 0)
 {
 	numberOfWheels = 2;
 	numberOfSeats = 1;
+	includeHelmet = false;
 }
 
-bike::bike(std::string registration, std::string make, std::string model, int year, int price, bool includeHelmet):vehicle(registration, make, model, "Bike", year, price)
+bike::bike(std::string registration, std::string make, std::string model, int year, int price, bool cincludeHelmet):vehicle(registration, make, model, "Bike", year, price)
 {
 	numberOfWheels = 2;
 	numberOfSeats = 1;
+	includeHelmet = cincludeHelmet;
 }
 
 bool bike::addHelmet()

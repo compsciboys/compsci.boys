@@ -1,5 +1,6 @@
 #ifndef BIKE_H
 #define BIKE_H
+#include "vehicle.h"
 
 #include <string>
 
@@ -11,7 +12,7 @@ public:
 
 	//Initialisers
 	bike();
-	bike(std::string registration, std::string brand, std::string make, int year, int price, bool includeHelmet);
+	bike(std::string registration, std::string make, std::string model, int year, int price, bool includeHelmet);
 
 	//Setters
 	bool addHelmet();
