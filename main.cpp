@@ -72,7 +72,15 @@ int main (void) {
 					std::getline(std::cin, tempName);
 
 					std::cout << "How many vehicles can '" << tempName << "' hold?: ";
-					std::cin >> tempCapacity;
+
+					while(std::getline(std::cin, inputBuffer)) {
+						std::stringstream linestream(inputBuffer);
+						if(!(linestream >> tempCapacity) ||linestream >> errorTest) {
+							std::cout << "That was an invalid input. Enter how many vehicles '" << tempName << "' can hold: " << std::endl;
+							continue;
+						}
+						break;
+					}
 
 					yards[numSalesyards].setName(tempName);
 					yards[numSalesyards].setCapacity(tempCapacity);
@@ -80,8 +88,7 @@ int main (void) {
 					numSalesyards++;
 				} else {
 					std::cout << "Sorry you have already have " << numSalesyards << " salesyards, the max amount of salesyards allowed" << std::endl;
-				}
-				std::cin.get();		
+				}	
 				break;
 			case '2':
 				returnToMenu=false;
@@ -97,18 +104,24 @@ int main (void) {
 
 						if (currentSalesyard < numSalesyards && currentSalesyard >= 0) {
 
-							std::cout << "You have selected the salesyard '" << yards[currentSalesyard].getName() << "'" << std::endl << "What would you like to do?" << std::endl;
 							salesyardSelected=true;
 							std::cin.get();
+							
 							while (salesyardSelected==true) {
-								std::cout << "0 - Return to Menu\n1 - View vehicles\n2 - Add Vehicle\n3 - Sell Vehicle\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard\n" << std::endl;
-								std::cin.get(userInput);
+								std::cout << "\n~~~~~~'" << yards[currentSalesyard].getName() << "' Menu~~~~~~\n0 - Return to Menu\n1 - View Vehicles\n2 - Add Vehicle\n3 - Sell Vehicle\n4 - View Staff\n5 - Hire Staff\n6 - Fire Staff\n7 - Delete Salesyard" << std::endl;
+								while(std::getline(std::cin, inputBuffer)) {
+									std::stringstream linestream(inputBuffer);
+									userInput='~';
+									if(!(linestream >> userInput)) {
+										continue;
+									}
+									break;
+								}
 
 								switch (userInput) {
 									case '0':
 										salesyardSelected=false;
 										returnToMenu=true;
-										std::cin.ignore();
 										break;
 									case '1':
 										returnToSalesyardMenu=false;
@@ -119,22 +132,40 @@ int main (void) {
 												std::cout << i+1<< " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << std::endl;
 											}
 											while (returnToSalesyardMenu==false) {
-												std::cin >> currentVehicle;
-												std::cin.get();
+												while(std::getline(std::cin, inputBuffer)) {
+													std::stringstream linestream(inputBuffer);
+													if(!(linestream >> currentVehicle)) {
+														std::cout << "That was an invalid input" << std::endl;
+														continue;
+													}
+													break;
+												}
 												currentVehicle--;
-
-												if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
+												if (currentVehicle == -1) {
+													returnToSalesyardMenu=true;
+													break;
+												} else if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
 													std::cout << "You have selected the '" << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << "'" << std::endl << "What would you like to do?" << std::endl;
 													vehicleSelected=true;
 
 													while (vehicleSelected==true) {
 														std::cout << "0 - Return\n1 - View All Details\n2 - Change Registration\n";
-														std::cin.get(userInput);
+														while(std::getline(std::cin, inputBuffer)) {
+															std::stringstream linestream(inputBuffer);
+															if(!(linestream >> userInput)) {
+															//	if (userInput!='\n'){
+																	std::cout << "That was an invalid input" << std::endl;
+															//	}
+																continue;
+															}
+															break;
+														}
 
 														switch (userInput) {
 															case '0':
 																vehicleSelected=false;
 																returnToSalesyardMenu=true;
+																
 																break;
 															case '1':
 																std::cout << "Manufacturing Year: " << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << std::endl;
@@ -149,12 +180,12 @@ int main (void) {
 																if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Truck") { 
 																	std::cout << "~~~~~Truck Specific Details~~~~~" << std::endl;
 																	tempTruck = static_cast<truck *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Towing Capacity: " << tempTruck->getTowingCap() << std::endl;
+																	std::cout << "Towing Capacity (kg): " << tempTruck->getTowingCap() << std::endl;
 
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Van") {
 																	std::cout << "~~~~~Van specific Details~~~~~" << std::endl;
 																	tempVan = static_cast<van *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Storing Capacity: " << tempVan->getStorageSpace() << std::endl;
+																	std::cout << "Storing Capacity (cubic metres): " << tempVan->getStorageSpace() << std::endl;
 	
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Bike") {
 																	std::cout << "~~~~~Bike specific Details~~~~~" << std::endl;
@@ -169,21 +200,25 @@ int main (void) {
 																} else if (yards[currentSalesyard].getYard()[currentVehicle]->getBody_type()=="Coupe") {
 																	std::cout << "~~~~~Coupe specific Details~~~~~" << std::endl;
 																	tempCoupe = static_cast<coupe *>(yards[currentSalesyard].getYard()[currentVehicle]);
-																	std::cout << "Performance: " << tempCoupe->getPerformance() << std::endl;	
+																	std::cout << "Performance (kWh): " << tempCoupe->getPerformance() << std::endl;	
 
 																}
 																
-																std::cin.get();
 																break;
 															case '2':
 																std::cout << "Enter New Registration: " << std::endl;
 																std::cin.get();
 																std::getline(std::cin, tempRego);
 																yards[currentSalesyard].getYard()[currentVehicle]->setRegistration(tempRego);
+																break;
+															case '\n':
+																break;
 															default:
 																std::cout << "That is an invalid input" << std::endl;
 														}
 													}
+												} else {
+													std::cout << "That is an invalid input" << std::endl;
 												}
 											}
 										} else {
@@ -239,6 +274,10 @@ int main (void) {
 												std::cout << "That was an invalid input. Enter the vehicle's purchase price" << std::endl;
 												continue;
 											}
+											if(tempPrice<0) {
+												std::cout << "Sorry, the price must be positive" << std::endl;
+												continue;
+											}
 											break;
 										}
 
@@ -253,7 +292,7 @@ int main (void) {
 										}
 
 										if (tempBodyType=="Truck" || tempBodyType=="truck") { 
-											std::cout << "Please enter the towing capacity of this truck" << std::endl;
+											std::cout << "Please enter the towing capacity of this truck in kg" << std::endl;
 											while(std::getline(std::cin, inputBuffer)) {
 												std::stringstream linestream(inputBuffer);
 												if(!(linestream >> tempTowing) || linestream >> errorTest) {
@@ -272,7 +311,7 @@ int main (void) {
 											}
 
 										} else if (tempBodyType=="Van" || tempBodyType=="van") {
-											std::cout << "Please enter the storage capacity of this van" << std::endl;
+											std::cout << "Please enter the storage capacity of this van in cubic metres" << std::endl;
 											while(std::getline(std::cin, inputBuffer)) {
 												std::stringstream linestream(inputBuffer);
 												if(!(linestream >> tempStorage) || linestream >> errorTest) {
@@ -312,7 +351,7 @@ int main (void) {
 											}
 											std::cin.ignore();
 										} else if (tempBodyType=="Coupe"||tempBodyType=="coupe") {
-											std::cout << "Please enter the performance of this car (kWh): " << std::endl;
+											std::cout << "Please enter the performance of this car in kWh: " << std::endl;
 											while(std::getline(std::cin, inputBuffer)) {
 												std::stringstream linestream(inputBuffer);
 												if(!(linestream >> tempPerformance) || linestream >> errorTest) {
@@ -341,40 +380,48 @@ int main (void) {
 										}
 										break;
 									case '3':
-										returnToSalesyardMenu=false;
 										if (yards[currentSalesyard].getNumVehicles()>0 && yards[currentSalesyard].getNumWorkers()>0) {
 											std::cout << "Select the vehicle you would like to sell" << std::endl;
 											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
 												std::cout << i << " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << std::endl;
 											}
-											while (returnToSalesyardMenu==false) {
-												std::cin >> currentVehicle;
-
-												if (currentVehicle < yards[currentSalesyard].getNumVehicles() && currentVehicle >= 0) {
-													std::cout << "Which Salesman has sold the '" << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << "'" << std::endl << "What would you like to do?" << std::endl;
-													vehicleSelected=true;
-													for (i=0;i<yards[currentSalesyard].getNumWorkers();i++) {
-														std::cout << i << " - " << yards[currentSalesyard].getWorkers()[i]->getName() << std::endl;
-													}
-													std::cin >> currentSalesman;
-													if (currentSalesman>=0 && currentSalesman<yards[currentSalesyard].getNumWorkers()) {
-														if (yards[currentSalesyard].getWorkers()[i]->getJobTitle() == "Salesman") {
-															std::cout << "This car was bought for $" << yards[currentSalesyard].getYard()[currentVehicle]->getPrice() << " .How much was it sold for?" << std::endl;
-															std::cin >> tempPrice;
-															tempSalesman = static_cast<salesman *>(yards[currentSalesyard].getWorkers()[currentSalesman]);
-															yards[currentSalesyard].sellVehicle(currentVehicle, tempSalesman,tempPrice);
-														} else {
-															std::cout << "Sorry, " << yards[currentSalesyard].getWorkers()[currentSalesman]->getName() << " can't sell cars" << std::endl;
-														}
-													} else {
-														std::cout << "That is not a valid selection" << std::endl;
-													}
-												} else {
-													std::cout << "That is not a valid selection" << std::endl;
-													returnToSalesyardMenu=true;
-													std::cin.get();
+											while(std::getline(std::cin, inputBuffer)) {
+												std::stringstream linestream(inputBuffer);
+												if (linestream=="\n") {
+													continue;
+												} else if(!(linestream >> currentVehicle) || linestream >> errorTest || currentVehicle >= yards[currentSalesyard].getNumVehicles() || currentVehicle < 0) {
+													std::cout << "That was an invalid input" << std::endl;
+													continue;
 												}
+												break;
 											}
+
+											std::cout << "Which Salesman has sold the '" << yards[currentSalesyard].getYard()[currentVehicle]->getYear() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getMake() << " " << yards[currentSalesyard].getYard()[currentVehicle]->getModel() << "'" << std::endl;
+								
+											for (i=0;i<yards[currentSalesyard].getNumWorkers();i++) {
+												std::cout << i << " - " << yards[currentSalesyard].getWorkers()[i]->getName() << std::endl;
+											}
+												
+											while(std::getline(std::cin, inputBuffer)) {
+												std::stringstream linestream(inputBuffer);
+												if(!(linestream >> currentSalesman) || linestream >> errorTest || currentSalesman < 0 || currentSalesman >= yards[currentSalesyard].getNumWorkers()) {
+													std::cout << "That was an invalid input" << std::endl;
+													continue;
+												}
+												break;
+											}
+											
+											if (yards[currentSalesyard].getWorkers()[currentSalesman]->getJobTitle() == "Salesman") {
+												std::cout << "This car was bought for $" << yards[currentSalesyard].getYard()[currentVehicle]->getPrice() << " .How much was it sold for?" << std::endl;
+												std::cin >> tempPrice;
+												tempSalesman = static_cast<salesman *>(yards[currentSalesyard].getWorkers()[currentSalesman]);
+												yards[currentSalesyard].sellVehicle(currentVehicle, tempSalesman, tempPrice);
+												std::cout << "Car successfully sold" << std::endl;
+											} else {
+												std::cout << "Sorry, " << yards[currentSalesyard].getWorkers()[currentSalesman]->getName() << " can't sell cars" << std::endl;
+											}
+
+											
 										} else {
 											if (yards[currentSalesyard].getNumVehicles()>0) {
 												std::cout << "Sorry, you don't have any staff available to sell cars" << std::endl;
@@ -383,7 +430,6 @@ int main (void) {
 											} else {
 												std::cout << "Sorry, you don't have any cars or staff" << std::endl;
 											}
-											
 										}
 										break;
 									case '4':
@@ -406,6 +452,9 @@ int main (void) {
 													}
 													returnToSalesyardMenu=true;
 													std::cin.get();
+												} else if (currentSalesman==-1) {
+													returnToSalesyardMenu=true;
+													break;
 												}
 											}
 										} else {
@@ -450,6 +499,8 @@ int main (void) {
 										salesyardSelected=false;
 										returnToMenu=true;
 										break;
+									case '\n':
+										break;
 									default:
 										std::cout << "That is an invalid input" << std::endl;
 								}
@@ -462,8 +513,7 @@ int main (void) {
 					}
 				}
 				break;
-			case '~':
-		
+			case '\n':
 				break;
 			default:
 				std::cout << "That is an invalid input" << std::endl;

@@ -58,6 +58,7 @@ void salesyard::sellVehicle(int index, salesman *worker, int price) {
 	worker->increaseProfit(price-yard[index]->getPrice());
 	worker->incrementCarsSold();
 	yard[index]=yard[numVehicles-1];
+	numVehicles--;
 }
 
 bool salesyard::addStaff(staff *newWorker) {
