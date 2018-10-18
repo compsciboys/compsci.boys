@@ -22,6 +22,8 @@ vehicle::vehicle(std::string crego, std::string cmake, std::string cmodel, std::
 	body_type = cbody_type;
 	year = cyear;
 	purchasePrice = cprice; 
+	numberOfWheels = 4;
+    numberOfSeats = 5; 
 
 }
 
