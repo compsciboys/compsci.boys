@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 int main (void) {
 	bool run = true;
@@ -22,6 +23,8 @@ int main (void) {
 	int maxSalesyards = 5;
 	salesyard *yards;                                            
 	yards = new salesyard[maxSalesyards];
+	std::string inputBuffer;
+	char errorTest;
 
 	std::string tempName;
 	int tempCapacity;
@@ -105,6 +108,7 @@ int main (void) {
 									case '0':
 										salesyardSelected=false;
 										returnToMenu=true;
+										std::cin.ignore();
 										break;
 									case '1':
 										returnToSalesyardMenu=false;
@@ -176,7 +180,6 @@ int main (void) {
 																std::cin.get();
 																std::getline(std::cin, tempRego);
 																yards[currentSalesyard].getYard()[currentVehicle]->setRegistration(tempRego);
-																std::cin.ignore();
 															default:
 																std::cout << "That is an invalid input" << std::endl;
 														}
@@ -189,20 +192,76 @@ int main (void) {
 										break;
 									case '2':
 										std::cout << "Please enter the vehicle registration: " << std::endl;
-										std::cin >> tempRego;
+										std::cin.ignore();
+										while(std::getline(std::cin, inputBuffer)) {
+											std::stringstream linestream(inputBuffer);
+											if(!(linestream >> tempRego)) {
+												std::cout << "That was an invalid input. Enter the vehicle's registration" << std::endl;
+												continue;
+											}
+											break;
+										}
+
 										std:: cout << "Please enter the vehicle badge: " << std::endl;
-										std::cin >> tempMake;
+										while(std::getline(std::cin, inputBuffer)) {
+											std::stringstream linestream(inputBuffer);
+											if(!(linestream >> tempMake)) {
+												std::cout << "That was an invalid input. Enter the vehicle's badge" << std::endl;
+												continue;
+											}
+											break;
+										}
+										
 										std::cout << "Please enter the vehicle model: " << std::endl;
-										std::cin >> tempModel;
+										while(std::getline(std::cin, inputBuffer)) {
+											std::stringstream linestream(inputBuffer);
+											if(!(linestream >> tempModel)) {
+												std::cout << "That was an invalid input. Enter the vehicle's model" << std::endl;
+												continue;
+											}
+											break;
+										}
+
 										std::cout << "Please enter the year of manufacture: " << std::endl;
-										std::cin >> tempYear;
-										std::cout << "Please enter the price of the vehicle: " << std::endl;
-										std::cin >> tempPrice;
+										while(std::getline(std::cin, inputBuffer)) {
+											std::stringstream linestream(inputBuffer);
+											if(!(linestream >> tempYear) || linestream >> errorTest) {
+												std::cout << "That was an invalid input. Enter the vehicle's year of manufacture" << std::endl;
+												continue;
+											}
+											break;
+										}
+										
+										std::cout << "Please enter the purchase price of the vehicle: " << std::endl;
+										while(std::getline(std::cin, inputBuffer)) {
+											std::stringstream linestream(inputBuffer);
+											if(!(linestream >> tempPrice) ||linestream >> errorTest) {
+												std::cout << "That was an invalid input. Enter the vehicle's purchase price" << std::endl;
+												continue;
+											}
+											break;
+										}
+
 										std::cout << "Please enter the vehicle body type (Truck, Van, Bike, Coupe, etc.):" << std::endl;
-										std::cin >> tempBodyType;
-										if (tempBodyType=="Truck") { 
+										while(std::getline(std::cin, inputBuffer)) {
+											std::stringstream linestream(inputBuffer);
+											if(!(linestream >> tempBodyType)) {
+												std::cout << "That was an invalid input. Enter the vehicle's body type" << std::endl;
+												continue;
+											}
+											break;
+										}
+
+										if (tempBodyType=="Truck" || tempBodyType=="truck") { 
 											std::cout << "Please enter the towing capacity of this truck" << std::endl;
-											std::cin >> tempTowing;
+											while(std::getline(std::cin, inputBuffer)) {
+												std::stringstream linestream(inputBuffer);
+												if(!(linestream >> tempTowing) || linestream >> errorTest) {
+													std::cout << "That was an invalid input. Enter the vehicle's towing capcity" << std::endl;
+													continue;
+												}
+												break;
+											}	
 
 											tempTruck=new truck(tempRego, tempMake, tempModel, tempYear, tempPrice, tempTowing);
 
@@ -211,9 +270,17 @@ int main (void) {
 											} else {
 												std::cout << "Truck added successfully" << std::endl;
 											}
-										} else if (tempBodyType=="Van") {
+
+										} else if (tempBodyType=="Van" || tempBodyType=="van") {
 											std::cout << "Please enter the storage capacity of this van" << std::endl;
-											std::cin >> tempStorage;
+											while(std::getline(std::cin, inputBuffer)) {
+												std::stringstream linestream(inputBuffer);
+												if(!(linestream >> tempStorage) || linestream >> errorTest) {
+													std::cout << "That was an invalid input. Enter the vehicle's storage capacity" << std::endl;
+													continue;
+												}
+												break;
+											}
 
 											tempVan=new van(tempRego, tempMake, tempBodyType, tempYear, tempPrice, tempStorage);
 
@@ -222,7 +289,7 @@ int main (void) {
 											} else {
 												std::cout << "Van added successfully" << std::endl;
 											}
-										} else if (tempBodyType=="Bike") {
+										} else if (tempBodyType=="Bike" || tempBodyType=="bike") {
 											std::cout << "Does this bike contain a helmet (y/n): " << std::endl;
 											cont =true;
 											while (cont) {
@@ -243,9 +310,17 @@ int main (void) {
 											} else {
 													std::cout << "Bike added successfully" << std::endl;
 											}
-										} else if (tempBodyType=="Coupe") {
+											std::cin.ignore();
+										} else if (tempBodyType=="Coupe"||tempBodyType=="coupe") {
 											std::cout << "Please enter the performance of this car (kWh): " << std::endl;
-											std::cin >> tempPerformance;
+											while(std::getline(std::cin, inputBuffer)) {
+												std::stringstream linestream(inputBuffer);
+												if(!(linestream >> tempPerformance) || linestream >> errorTest) {
+													std::cout << "That was an invalid input. Enter the vehicle's performance" << std::endl;
+													continue;
+												}
+												break;
+											}
 
 											tempCoupe=new coupe(tempRego, tempMake, tempModel, tempYear, tempPrice, tempPerformance);
 
@@ -264,11 +339,10 @@ int main (void) {
 												std::cout << "Car added successfully" << std::endl;
 											}
 										}
-										std::cin.get();
 										break;
 									case '3':
 										returnToSalesyardMenu=false;
-										if (yards[currentSalesyard].getNumVehicles()>0) {
+										if (yards[currentSalesyard].getNumVehicles()>0 && yards[currentSalesyard].getNumWorkers()>0) {
 											std::cout << "Select the vehicle you would like to sell" << std::endl;
 											for (i=0;i<yards[currentSalesyard].getNumVehicles();i++) {
 												std::cout << i << " - " << yards[currentSalesyard].getYard()[i]->getYear() << " " << yards[currentSalesyard].getYard()[i]->getMake() << " " << yards[currentSalesyard].getYard()[i]->getModel() << std::endl;
@@ -301,6 +375,15 @@ int main (void) {
 													std::cin.get();
 												}
 											}
+										} else {
+											if (yards[currentSalesyard].getNumVehicles()>0) {
+												std::cout << "Sorry, you don't have any staff available to sell cars" << std::endl;
+											} else if (yards[currentSalesyard].getNumWorkers()>0) {
+												std::cout << "Sorry, you don't have any cars available to be sold" << std::endl;
+											} else {
+												std::cout << "Sorry, you don't have any cars or staff" << std::endl;
+											}
+											
 										}
 										break;
 									case '4':
