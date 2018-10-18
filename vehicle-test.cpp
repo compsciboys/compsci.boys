@@ -1,6 +1,6 @@
 #include "vehicle.h"
 #include <iostream>
-
+#include <sstream>
 int main (void) {
 	vehicle firstCar("123ABC", "Holden", "Commodore", "Sedan", 2010, 10000);
 
@@ -26,19 +26,72 @@ int main (void) {
 	std::string cbody_type1;
 	int cyear1; 
 	int cprice1;
-	
-	std::cout << "Please enter the vehicle registration: " << std::endl; ;
-	std::cin >> crego1;
+	char errorTest;
+	std::string inputBuffer;
+
+	std::cout << "Please enter the vehicle registration: " << std::endl;
+	while(std::getline(std::cin, inputBuffer)) {
+		std::stringstream linestream(inputBuffer);
+		if(!(linestream >> crego1)) {
+			std::cout << "That was an invalid input. Enter the vehicle's registration" << std::endl;
+			continue;
+		}
+		break;
+	}
+		
 	std:: cout << "Please enter the vehicle badge: " << std::endl;
-	std::cin >> cmake1;
+	while(std::getline(std::cin, inputBuffer)) {
+		std::stringstream linestream(inputBuffer);
+		if(!(linestream >> cmake1)) {
+			std::cout << "That was an invalid input. Enter the vehicle's badge" << std::endl;
+			continue;
+		}
+		break;
+	
+	}
 	std::cout << "Please enter the vehicle model: " << std::endl;
-	std::cin >> cmodel1;
-	std::cout << "Please enter the vehicle body type: " << std::endl;
-	std::cin >> cbody_type1;
+	while(std::getline(std::cin, inputBuffer)) {
+		std::stringstream linestream(inputBuffer);
+		if(!(linestream >> cmodel1)) {
+			std::cout << "That was an invalid input. Enter the vehicle's model" << std::endl;
+			continue;
+		}
+		break;
+	}
+
 	std::cout << "Please enter the year of manufacture: " << std::endl;
-	std::cin >> cyear1;
-	std::cout << "Please enter the price of the vehicle: " << std::endl;
-	std::cin >> cprice1;
+	while(std::getline(std::cin, inputBuffer)) {
+		std::stringstream linestream(inputBuffer);
+		if(!(linestream >> cyear1) || linestream >> errorTest) {
+			std::cout << "That was an invalid input. Enter the vehicle's year of manufacture" << std::endl;
+			continue;
+		}
+		break;
+	}
+										
+	std::cout << "Please enter the purchase price of the vehicle: " << std::endl;
+	while(std::getline(std::cin, inputBuffer)) {
+		std::stringstream linestream(inputBuffer);
+		if(!(linestream >> cprice1) ||linestream >> errorTest) {
+			std::cout << "That was an invalid input. Enter the vehicle's purchase price" << std::endl;
+			continue;
+		}
+		if(cprice1<0) {
+			std::cout << "Sorry, the price must be positive" << std::endl;
+			continue;
+		}
+		break;
+	}
+
+	std::cout << "Please enter the vehicle body type (Truck, Van, Bike, Coupe, etc.):" << std::endl;
+	while(std::getline(std::cin, inputBuffer)) {
+		std::stringstream linestream(inputBuffer);
+		if(!(linestream >> cbody_type1)) {
+			std::cout << "That was an invalid input. Enter the vehicle's body type" << std::endl;
+			continue;
+		}
+		break;
+	}
 	
 	vehicle thirdCar(crego1, cmake1, cmodel1, cbody_type1, cyear1, cprice1);
 	
